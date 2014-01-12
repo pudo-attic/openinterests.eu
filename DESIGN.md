@@ -1,5 +1,6 @@
 Right now this is only ficiton. If you're interested, please help! 
 
+
 ### User Stories
 
 * As a researcher, I want to find details on a particular org/person so
@@ -14,11 +15,13 @@ Right now this is only ficiton. If you're interested, please help!
 * As a researcher, I want to contribute data on an org or link to a news
   story.
 
+
 ### Implementation Options
 
 * re-use detective.io
 * fork nomenklatura, add relations
 * bespoke DB schema, render directly
+
 
 ### What operations do I need?
 
@@ -37,6 +40,7 @@ Admin-facing:
 * Approval queue for user-suggested edits. 
 * Import and export of canonicalization lists.
 
+
 ### Site map
 
 * Home page 
@@ -44,4 +48,23 @@ Admin-facing:
   * Entities: View
 * FAQ
 * Data sources / raw data
+
+
+## Data model
+
+
+* Relation
+
+* Entity
+	* Class
+		- name
+		- list of properties
+	* Property
+		- name
+		- value
+		- source_url
+		- active
+		- created_at
+		- creator_id
+
 
