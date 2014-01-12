@@ -13,5 +13,17 @@ institutions. In particular, the database will include:
 As a secondary objective, the site's software will be built to be 
 re-usable as a data graph storage.
 
+### User Stories
 
+* As a researcher, I want to find details on a particular org/person so
+  I understand what activities they are involved in. 
+* As a researcher, I want to see all orgs/ppl involved in a particular
+  sector or policy area so that I can understand what position there
+  are.
+* As a journalist, I want to quickly look up which companies are funding
+  a think tank or policy forum.
+* As a journalist, I want to find overlap between EC lobbying, expert
+  groups, expenditures and procurement.
+* As a researcher, I want to contribute data on an org or link to a news
+  story.
 
