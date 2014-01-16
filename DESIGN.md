@@ -52,9 +52,7 @@ Admin-facing:
 
 ## Data model
 
-
 * Relation
-
 * Entity
 	* Class
 		- name
