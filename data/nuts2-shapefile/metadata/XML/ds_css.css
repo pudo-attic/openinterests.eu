@@ -1,0 +1,321 @@
+/* --------------------------- BANNER START ------------------------------- */
+table.banner_image
+{
+width:100%;
+background:#0099CC;
+padding:0;
+margin:0;
+}
+
+table.banner_image td.banner_image_td
+{
+padding:0;
+margin:0;
+background:#0099CC;
+}
+/* --------------------------- BANNER END   ------------------------------- */
+/* ----------------------------  TABLE LABEL START  --------------------------------*/
+
+table.table_label
+{
+width:97%;
+margin:0 10px 0 10px;
+border:1px solid #C4C4C4;
+}
+
+table.table_label td
+{
+padding:6px 5px;
+}
+
+/* ----------------------------  TABLE LABEL END  --------------------------------*/
+/* ----------------------------  TABLE TYPES START  --------------------------------*/
+table#table_types
+{
+width:100%;
+margin:10px;
+}
+
+table#table_types td
+{
+width:50%;
+padding:5px 0 5px 0;
+}
+/* ----------------------------  TABLE TYPES END --------------------------------*/
+
+/* ---------- SEARCH SECTION START ---------- */
+.search_section
+{
+width:96%;
+padding:0;
+margin:8px 9px 2px 9px;
+border:0 solid #000000;
+background:#ffffff;
+}
+
+.search_section td
+{
+padding:0;
+margin:0;
+padding-bottom:4px;
+border:0 solid #000000;
+border-bottom-width:1px;
+}
+/*
+.search_content
+{
+width:100%;
+padding:0;
+margin:0;
+border:0 solid #000000;
+background:#ffffff;
+}
+
+.search_content td
+{
+margin:0;
+padding:6px 0;
+}
+*/
+/* ---------- SEARCH SECTION END ---------- */
+
+
+
+
+/* ---------- TOPIC START ---------- */
+.topic_title
+{
+width:100%;
+padding:0;
+margin:0;
+margin-top:17px;
+border:0 solid #000000;
+border-bottom-width:1px;
+background:#ffffff;
+}
+
+.topic_title td
+{
+margin:0;
+padding:6px 0;
+}
+
+.topic_area
+{
+width:100%;
+padding:0;
+margin:0;
+border:0 solid #000000;
+background:#ffffff;
+/* font:normal 11px Tahoma, Verdana, Helvetica, Arial, sans-serif; */
+}
+
+.topic_area td.topic_content
+{
+width:100%;
+margin:0;
+padding:6px 0 6px 0;
+vertical-align:top;
+}
+
+.topic_area td.topic_menu
+{
+width:0%;
+margin:0;
+padding:6px 0;
+vertical-align:top;
+}
+/* ---------- TOPIC END ---------- */
+
+
+
+
+/* ---------- FORM ELEMENTS START ---------- */
+input
+{
+font:normal 11px Tahoma, Verdana, Helvetica, Arial, sans-serif;
+}
+/* ---------- FORM ELEMENTS END ---------- */
+
+
+
+
+/* ---------- TABS DIV START ---------- */
+div
+{
+background:#ffffff url("/site3img/pge_img_s3wd/pge_img_ds_s3wd/tabs_line_ds.gif") repeat-x;
+border:0 solid #000000;
+margin:0;
+margin-bottom:10px;
+padding:0 4px 0 6px;
+white-space:nowrap;
+}
+
+.paddingleft_content
+{
+padding:0 4px 0 6px;
+}
+/* ---------- TABS DIV END ---------- */
+
+
+
+
+/* ---------------------------------------- DEDICATED SECTION START ---------- */
+.dedicated_section
+{
+width:177px;
+margin:0;
+margin-top:18px;
+padding:0;
+border:0 solid #C2BFB1;
+border-bottom-width:1px;
+}
+
+.dedicated_section td
+{
+margin:0;
+padding:6px 0 6px 15px;
+}
+
+.dedicated_section td a
+{
+text-decoration:none;
+color:#F3EFDD;
+}
+
+.dedicated_section td a:hover
+{
+text-decoration:underline;
+color:#F3EFDD;
+}
+
+/* ---------------------------------------- DEDICATED SECTION END ---------- */
+
+
+
+
+/* ---------------------------------------- LEVEL 01 FILES START ---------- */
+.level01_files
+{
+width:177px;
+background:#DFDBCB;
+margin:0;
+padding:0;
+}
+
+.level01_files td
+{
+margin:0;
+padding:6px 0 6px 14px;
+border:0 solid #C2BFB1;
+border-bottom-width:1px;
+}
+
+.level01_files img 
+{
+vertical-align:top;
+}
+
+.level01_files td a:link, .level01_files td a:active, .level01_files td a:visited
+{
+color:#4F4E48;
+text-decoration:none;
+}
+
+.level01_files td a:hover
+{
+color:#4F4E48;
+text-decoration:underline;
+}
+/* ---------------------------------------- LEVEL 01 FILES END ---------- */
+
+
+
+
+/* ---------------------------------------- LEVEL 02 FILES START ---------- */
+.level02_files
+{
+width:177px;
+background:#DFDBCB;
+margin:0;
+padding:0;
+}
+
+.level02_files td
+{
+margin:0; display:block; width:154px;
+padding:6px 0 6px 24px;
+border:0 solid #C2BFB1;
+border-bottom-width:1px;
+}
+
+.level02_files img 
+{
+vertical-align:top;
+}
+
+.level02_files td a:link, .level02_files td a:active, .level02_files td a:visited
+{
+color:#4F4E48;
+text-decoration:none;
+}
+
+.level02_files td a:hover
+{
+color:#4F4E48;
+text-decoration:underline;
+}
+/* ---------------------------------------- LEVEL 02 FILES END ---------- */
+
+
+
+
+
+/* ---------------------------------------- LEVEL 01 FILES ARROWS START ---------- */
+.level01_arrow
+{
+width:177px;
+background:#DFDBCB;
+color:#4F4E48;
+margin:0;
+padding:0;
+}
+
+.level01_arrow td
+{
+margin:0;
+padding:6px 0 6px 2px;
+border:0 solid #C2BFB1;
+border-bottom-width:1px;
+}
+
+.level01_arrow td a:link, .level01_arrow td a:active, .level01_arrow td a:visited
+{
+color:#4F4E48;
+text-decoration:none;
+}
+
+.level01_arrow td a:hover
+{
+color:#4F4E48;
+text-decoration:underline;
+}
+/* ---------------------------------------- LEVEL 01 FILES ARROWS END ---------- */
+
+
+
+
+
+/* ---------------------------------------- ARROW IMAGE START ---------- */
+.arrow
+{
+margin-top:4px;
+margin-right:3px;
+margin-bottom:4px;
+margin-left:2px;
+float:left;
+}
+/* ---------------------------------------- ARROW IMAGE END ---------- */
+
+/* -------------- Submit Btn bold (works on latest browsers) --------- */
+td.RegionHeaderColor input[type="submit"] {font-weight:bold;}
