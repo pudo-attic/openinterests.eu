@@ -31,7 +31,7 @@ Budget codes can be applied using the appropriate script:
 This will also print any unknown budget code identifiers occuring in the source
 data.
 
-### Regenerating the data
+### Regenerating the budget reference data
 
 The required scraper and tools for the EU budget live at: https://github.com/pudo/dpkg-eu-budget
 
