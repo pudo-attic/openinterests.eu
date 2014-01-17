@@ -1,0 +1,2 @@
+shapefile comes from here:
+http://epp.eurostat.ec.europa.eu/cache/GISCO/geodatafiles/NUTS_10M_2006_SH.zip
