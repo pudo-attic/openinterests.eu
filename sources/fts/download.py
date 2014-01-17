@@ -3,7 +3,7 @@ import logging
 from datetime import datetime
 from sources.util import fetch_data
 
-log = logging.getLogger(__name__)
+log = logging.getLogger('sources.fts.download')
 BASE_URL = 'http://ec.europa.eu/budget/remote/fts/dl/export_%s_en.xml'
 
 

@@ -6,7 +6,7 @@ from datetime import datetime
 
 from sources.util import engine, walk_path
 
-log = logging.getLogger(__name__)
+log = logging.getLogger('sources.experts.parse')
 NS = '{http://ec.europa.eu/transparency/regexpert/}'
 
 

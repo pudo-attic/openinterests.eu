@@ -8,7 +8,7 @@ import tarfile
 from sources.util.cache import ensure_path
 
 
-log = logging.getLogger(__name__)
+log = logging.getLogger('sources.ted.download')
 ECAS_USER, ECAS_PASSWORD = os.environ.get("ECAS_USER"), os.environ.get("ECAS_PASSWORD")
 
 

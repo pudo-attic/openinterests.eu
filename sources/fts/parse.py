@@ -5,7 +5,7 @@ from lxml import etree
 from sources.util import walk_path
 from sources.fts.util import engine, fts_entry
 
-log = logging.getLogger(__name__)
+log = logging.getLogger('sources.fts.parse')
 NUMCHAR = "0123456789-."
 
 def to_float(num):
