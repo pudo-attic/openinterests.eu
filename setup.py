@@ -16,7 +16,7 @@ setup(
     author_email='friedrich@pudo.org',
     url='http://pudo.org',
     license='MIT',
-    packages=['opint'],
+    packages=['opint', 'sources'],
     #packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
     namespace_packages=[],
     include_package_data=False,
