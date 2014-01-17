@@ -1,9 +1,11 @@
 #coding: utf-8
+import logging
 from lxml import etree
 
 from sources.util import walk_path
 from sources.fts.util import engine, fts_entry
 
+log = logging.getLogger(__name__)
 NUMCHAR = "0123456789-."
 
 def to_float(num):
@@ -60,6 +62,7 @@ def convert_commitment(base, commitment):
 
         base['source_id'] += 1
         row.update(base)
+        log.info('%s - %s', row['grant_subject'], row['beneficiary'])
         fts_entry.upsert(row, ['source_file', 'source_id'])
 
 
