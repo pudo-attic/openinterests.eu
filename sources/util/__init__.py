@@ -10,6 +10,5 @@ requests_log.setLevel(logging.WARNING)
 alembic_log = logging.getLogger("alembic")
 alembic_log.setLevel(logging.WARNING)
 
-
-
-
+dataset_log = logging.getLogger("dataset")
+dataset_log.setLevel(logging.WARNING)
