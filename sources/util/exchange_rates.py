@@ -5,7 +5,7 @@ import json
 from sources.util.db import engine
 
 
-currency_table = engine['currency_rates']
+currency_table = engine['shd_currency_rates']
 RATES = {}
 
 
