@@ -65,11 +65,13 @@ def convert_commitment(base, commitment):
 
 def convert_file(file_name):
     doc = etree.parse(file_name)
+    #engine.begin()
     base = {'source_file': file_name, 'source_id': 0}
     for i, commitment in enumerate(doc.findall('//commitment')):
         base['source_line'] = commitment.sourceline
         base['source_contract_id'] = i
         convert_commitment(base, commitment)
+    #engine.commit()
 
 
 def load_fts():
