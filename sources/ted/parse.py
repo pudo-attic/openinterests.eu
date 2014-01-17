@@ -8,7 +8,7 @@ from sources.ted.util import ted_documents, Extractor
 from sources.ted.util import engine, documents_table, contracts_table, cpvs_table, references_table
 from sources.ted.awards import parse_form
 
-log = logging.getLogger(__name__)
+log = logging.getLogger('sources.ted.parse')
 
 
 def select_form(form, lang):
@@ -117,7 +117,7 @@ def parse(filename, file_content):
     # save to DB
     doc_no = data['doc_no']
     #engine.begin()
-    log.info('Parsed: %s', doc_no)
+    log.info('Parsed: %s, %s', doc_no, form_.tag)
     cpvs_table.delete(doc_no=doc_no)
     references_table.delete(doc_no=doc_no)
     contracts_table.delete(doc_no=doc_no)

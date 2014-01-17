@@ -4,7 +4,7 @@ import logging
 from datetime import datetime
 from sources.util import fetch_data
 
-log = logging.getLogger(__name__)
+log = logging.getLogger('sources.experts.download')
 BASE_URL = 'http://ec.europa.eu/transparency/regexpert/index.cfm?do=transparency.showList'
 
 

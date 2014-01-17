@@ -12,7 +12,7 @@ from sources.interests.util import reg_financial_data_turnover
 from sources.interests.util import reg_financial_data_custom_source
 from sources.interests.util import dateconv, intconv
 
-log = logging.getLogger(__name__)
+log = logging.getLogger('sources.interests.parse_interests')
 
 URL = 'http://ec.europa.eu/transparencyregister/public/consultation/statistics.do?action=getLobbyistsXml&fileType=NEW'
 NS2 = "{http://www.w3.org/1999/xlink}"

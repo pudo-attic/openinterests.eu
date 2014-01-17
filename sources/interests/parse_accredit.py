@@ -7,7 +7,7 @@ from sources.util import fetch_data
 from sources.interests.util import reg_person, reg_representative
 from sources.interests.util import shortdateconv as dateconv
 
-log = logging.getLogger(__name__)
+log = logging.getLogger('sources.interests.parse_accredit')
 
 URL = "http://ec.europa.eu/transparencyregister/public/consultation/statistics.do?action=getLobbyistsXml&fileType=ACCREDITED_PERSONS"
 _NS = "http://ec.europa.eu/transparencyregister/accreditedPerson/V1"
