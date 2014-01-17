@@ -6,6 +6,7 @@
 # Packages
 *.egg
 *.egg-info
+*.DS_Store
 dist
 build
 eggs
@@ -34,3 +35,4 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
+.env
