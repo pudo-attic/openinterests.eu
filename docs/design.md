@@ -50,6 +50,19 @@ Admin-facing:
 * Data sources / raw data
 
 
+## Loader API 
+
+loader = Loader()
+node = loader.make_node(default_source_url='http://....', schemas=['base',  'company', 'address'])
+node.set_name('Siemens')
+node.set('street', 'Soundsostr. 47')
+node.merge()
+
+edge = loader.make_edge(default..., schema='contract_award')
+edge.set('value', NNNN)
+edge.set_target(node)
+
+
 ## Data model
 
 * Relation
