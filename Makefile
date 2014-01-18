@@ -4,6 +4,10 @@ env:
 	. .env
 
 
+schema:
+	python opint/manage.py schema_import schema.yaml
+
+
 ####################################################
 # EC Financial Transparency System
 

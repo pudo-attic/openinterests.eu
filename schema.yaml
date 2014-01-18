@@ -1,0 +1,67 @@
+# This is a schema configuration for grano. 
+# For more details on what this does and how it works, see: 
+
+
+# System core schemata
+
+  - name: base
+    label: Common for all entities.
+    obj: entity
+    attributes:
+      - name: name
+        label: Name
+      - name: tagline
+        label: Short description
+
+
+# Common schemata
+
+  - name: public_body
+    label: Public body
+    obj: entity
+    attributes: []
+
+
+  - name: organisation
+    label: "Company, NGO or public institution"
+    obj: entity
+    attributes:
+      - name: acronym
+        label: Acronym
+
+
+  - name: address
+    label: Address
+    obj: entity
+    attributes:
+      - name: street
+        label: Street
+      - name: city
+        label: City
+      - name: postcode
+        label: Postal code
+      - name: country
+        label: Country
+      - name: country_code
+        label: "Country Code (ISO 3166-2)"
+
+
+
+  - name: geolocated
+    label: Geo-located entity
+    obj: entity
+    attributes:
+      - name: lon
+        label: Longitude
+      - name: lat
+        label: Latitude
+      - name: nuts1
+        label: NUTS1 Code
+      - name: nuts1_label
+        label: NUTS1 Name
+      - name: nuts2
+        label: NUTS2 Code
+      - name: nuts2_label
+        label: NUTS2 Name
+      - name: nuts3
+        label: NUTS3 Code
