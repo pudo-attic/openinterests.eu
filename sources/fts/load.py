@@ -13,6 +13,7 @@ FTS_URL = 'http://ec.europa.eu/budget/fts/index_en.htm'
 def load(loader, row):
 	dept = loader.make_entity(['public_body'])
 	dept.set('name', row.pop('responsible_department'))
+	dept.save()
 
 	bfry = loader.make_entity(['organisation', 'address', 'geolocated'])
 	bfry.set('name', row.pop('beneficiary'))
@@ -31,8 +32,31 @@ def load(loader, row):
 	bfry.set('city', row.pop('city'))
 	bfry.set('country', row.pop('country'))
 	bfry.set('postcode', row.pop('postcode'))
+	bfry.save()
 
-	pprint(dict(row))
+	log.info("loading: %s", row.get('grant_subject'))
+
+	tx = loader.make_relation('fts_committment', dept, bfry)
+	tx.set('action_type', row.pop('action_type'))
+	tx.set('amount', row.pop('amount'))
+	tx.set('article', row.pop('article'))
+	tx.set('budget_code', row.pop('budget_code'))
+	tx.set('budget_item', row.pop('budget_item'))
+	tx.set('chapter', row.pop('chapter'))
+	tx.set('cofinancing_rate', row.pop('cofinancing_rate'))
+	tx.set('cofinancing_rate_pct', row.pop('cofinancing_rate_pct'))
+	tx.set('coordinator', row.pop('coordinator'))
+	tx.set('date', row.pop('date'))
+	tx.set('grant_subject', row.pop('grant_subject'))
+	tx.set('item', row.pop('item'))
+	tx.set('position_key', row.pop('position_key'))
+	tx.set('title', row.pop('title'))
+	tx.set('total', row.pop('total'))
+	tx.save()
+
+	loader.persist()
+
+	#pprint(dict(row))
 
 
 def load_all():
