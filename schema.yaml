@@ -74,6 +74,8 @@
     label: "EC Financial Transparency System: Committment"
     obj: relation
     attributes:
+      - name: transaction_id
+        label: Transaction ID (internal)
       - name: amount
         label: Amount (in this committment)
       - name: total

@@ -1,5 +1,6 @@
 import logging
 from pprint import pprint
+from hashlib import sha1
 
 from grano.service import Loader
 
@@ -37,6 +38,9 @@ def load(loader, row):
 	log.info("loading: %s", row.get('grant_subject'))
 
 	tx = loader.make_relation('fts_committment', dept, bfry)
+	tx_id = '%s // %s' % (row['date'], row['source_id'])
+	tx.unique('transaction_id')
+	tx.set('transaction_id', sha1(tx_id).hexdigest())
 	tx.set('action_type', row.pop('action_type'))
 	tx.set('amount', row.pop('amount'))
 	tx.set('article', row.pop('article'))
