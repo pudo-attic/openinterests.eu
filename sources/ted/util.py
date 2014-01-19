@@ -1,7 +1,7 @@
 from lxml import etree
 from glob import iglob
 from pprint import pprint
-import tarfile
+from sqlalchemy import func, select, and_
 
 from sources.util import engine, walk_path
 
@@ -18,6 +18,18 @@ def ted_documents():
         with open(file_name, 'r') as fh:
             yield file_name, fh.read()
             
+
+def ted_contracts():
+    contract_alias = contracts_table.table.alias('contract')
+    document_alias = documents_table.table.alias('document')
+    _tables = [contract_alias, document_alias]
+    _filters = and_(contract_alias.c.doc_no == document_alias.c.doc_no)
+
+
+    q = select(_tables, _filters, _tables, use_labels=True,
+               order_by=[document_alias.c.doc_no.desc()])
+    for contract in engine.query(q):
+        yield contract
 
 
 class Extractor(object):

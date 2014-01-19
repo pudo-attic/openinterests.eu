@@ -19,7 +19,9 @@
   - name: public_body
     label: Public body
     obj: entity
-    attributes: []
+    attributes:
+      - name: public_body_type
+        label: Type of public body
 
 
   - name: organisation
@@ -29,13 +31,23 @@
       - name: acronym
         label: Acronym
 
+  - name: web
+    label: "An entity which maintains a presence on the web"
+    obj: entity
+    attributes:
+      - name: url
+        label: Website
+      - name: email
+        label: E-Mail
 
   - name: address
     label: Address
     obj: entity
     attributes:
-      - name: street
-        label: Street
+      - name: attention
+        label: Attention of
+      - name: address
+        label: Address
       - name: city
         label: City
       - name: postcode
@@ -44,7 +56,10 @@
         label: Country
       - name: country_code
         label: "Country Code (ISO 3166-2)"
-
+      - name: phone
+        label: Phone number
+      - name: fax
+        label: Fax number
 
 
   - name: geolocated
@@ -106,3 +121,149 @@
         label: Action Type
       - name: coordinator
         label: Coordinator
+
+
+  - name: ted_contract_award
+    label: Tenders Electronic Daily - contract award notice
+    obj: relation
+    attributes:
+      - name: transaction_id
+        label: Transaction ID (internal)
+      - name: document_no
+        label: Document number
+      - name: activity_contractor
+        label: Contractor activity
+      - name: activity_type
+        label: Activity type
+      - name: activity_type_other
+        label: Activity type (free form)
+      - name: additional_information
+        label: Additional information
+      - name: appeal_procedure
+        label: Appeak procedure
+      - name: concessionaire_contact
+        label: Concessionaire (Contact)
+      - name: concessionaire_email
+        label: Concessionaire (E-Mail)
+      - name: concessionaire_nationalid
+        label: Concessionaire (national ID)
+      - name: contract_award_day
+        label: Day of contract award
+      - name: contract_award_month
+        label: Month of contract award 
+      - name: contract_award_title
+        label: Title of contract award
+      - name: contract_award_year
+        label: Year of contract award
+      - name: contract_description
+        label: Contract description
+      - name: contract_number
+        label: Contract number
+      - name: contract_title
+        label: Contract title
+      - name: contract_type_supply
+        label: Type of supplies
+      - name: contract_value_cost_eur
+        label: Contract value (EUR)
+      - name: original_currency
+        label: Original currency
+      - name: contract_value_high_eur
+        label: Contract value (highest)
+      - name: contract_value_low_eur
+        label: Contract value (lowest)
+      - name: contract_value_vat_included
+        label: Contract value (VAT included)
+      - name: contract_value_vat_rate
+        label: Contract value (VAT rate)
+      - name: cpv_code
+        label: Common procurement vocabulary (CPV)
+      - name: electronic_auction
+        label: Electronic auction
+      - name: file_reference
+        label: Filing reference
+      - name: gpa_covered
+        label: Covered by GPA
+      - name: initial_value_cost_eur
+        label: Initial cost (EUR)
+      - name: initial_value_vat_included
+        label: Initial cost (VAT included)
+      - name: initial_value_vat_rate
+        label: Initial cost (VAT rate)
+      - name: contract_location
+        label: Contract location
+      - name: contract_location_nuts
+        label: Contract location (NUTS)
+      - name: lot_number
+        label: "Lot #"
+      - name: offers_received_meaning
+        label: Offers received
+      - name: offers_received_num
+        label: Number of offers received
+      - name: relates_to_eu_project
+        label: Related to an EU project
+      - name: total_value_cost_eur
+        label:  Total cost (EUR)
+      - name: total_value_high_eur
+        label: Total cost (highest)
+      - name: total_value_low_eur
+        label: Total cost (lowest)
+      - name: total_value_vat_included
+        label: Total cost (VAT included)
+      - name: total_value_vat_rate
+        label: Total cost (VAT rate)
+      - name: type_contract
+        label: Type of contract
+      - name: award_criteria
+        label: Award criteria
+      - name: award_criteria_code
+        label: Award criteria (code)
+      - name: bid_type
+        label: Bid type
+      - name: bid_type_code
+        label: Bid type (code)
+      - name: contract_nature
+        label: Contract nature
+      - name: contract_nature_code
+        label: Contract nature (code)
+      - name: directive
+        label: Based on directive
+      - name: dispatch_date
+        label: Dispatch date
+      - name: etendering_url
+        label: eTendering URL
+      - name: iso_country
+        label: ISO Country Code
+      - name: main_activities
+        label: Main activities
+      - name: main_activities_code
+        label: Main activities (code)
+      - name: oj_collection
+        label: Official Journal (EU) collection
+      - name: oj_date
+        label: Official Journal (EU) date
+      - name: oj_number
+        label: Official Journal (EU) number
+      - name: orig_language
+        label: Original language
+      - name: orig_nuts
+        label: Original location (NUTS region)
+      - name: orig_nuts_code
+        label: Original location (NUTS code)
+      - name: procedure
+        label: Procedure
+      - name: procedure_code
+        label: Procedure (code)
+      - name: regulation
+        label: Regulation
+      - name: regulation_code
+        label: Regulation (code)
+      - name: submission_date
+        label: Submission date
+      - name: technical_form_lang
+        label: Language of the contract award form
+      - name: title_country
+        label: Country mentioned in document title
+      - name: title_text
+        label: Document title
+      - name: title_town
+        label: Town mentioned in document title

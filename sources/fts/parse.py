@@ -1,4 +1,5 @@
 #coding: utf-8
+import HTMLParser
 import logging
 from lxml import etree
 
@@ -67,14 +68,18 @@ def convert_commitment(base, commitment):
 
 
 def convert_file(file_name):
-    doc = etree.parse(file_name)
-    #engine.begin()
-    base = {'source_file': file_name, 'source_id': 0}
-    for i, commitment in enumerate(doc.findall('//commitment')):
-        base['source_line'] = commitment.sourceline
-        base['source_contract_id'] = i
-        convert_commitment(base, commitment)
-    #engine.commit()
+    h = HTMLParser.HTMLParser()
+    with open(file_name, 'r') as fh:
+        text = fh.read().decode('utf-8')
+        text = h.unescape(text).encode('utf-8')
+        doc = etree.fromstring(text)
+        #engine.begin()
+        base = {'source_file': file_name, 'source_id': 0}
+        for i, commitment in enumerate(doc.findall('.//commitment')):
+            base['source_line'] = commitment.sourceline
+            base['source_contract_id'] = i
+            convert_commitment(base, commitment)
+        #engine.commit()
 
 
 def load_fts():
