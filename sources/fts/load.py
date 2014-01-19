@@ -7,7 +7,7 @@ from grano.service import Loader
 from sources.fts.util import engine, fts_entry
 
 
-log = logging.getLogger(__name__)
+log = logging.getLogger('sources.fts.load')
 FTS_URL = 'http://ec.europa.eu/budget/fts/index_en.htm'
 
 
@@ -29,7 +29,7 @@ def load(loader, row):
 	bfry.set('nuts1', row.pop('nuts3'))
 	bfry.set('nuts1_label', row.pop('nuts3_label'))
 
-	bfry.set('street', row.pop('address'))
+	bfry.set('address', row.pop('address'))
 	bfry.set('city', row.pop('city'))
 	bfry.set('country', row.pop('country'))
 	bfry.set('postcode', row.pop('postcode'))
@@ -59,9 +59,7 @@ def load(loader, row):
 	tx.save()
 
 	loader.persist()
-
 	#pprint(dict(row))
-
 
 def load_all():
 	loader = Loader(source_url=FTS_URL)

@@ -111,13 +111,14 @@ def parse(filename, file_content):
     
     form_ = select_form(form, data['orig_language'])
     contracts = []
-    if form_.tag.startswith('CONTRACT_AWARD_'):
+    #print form_
+    if form_.tag.startswith('CONTRACT_AWARD'):
         contracts = parse_form(form_)
     
     # save to DB
     doc_no = data['doc_no']
     #engine.begin()
-    log.info('Parsed: %s, %s', doc_no, form_.tag)
+    log.info('Parsed: %s, %s (%s)', doc_no, form_.tag, len(contracts))
     cpvs_table.delete(doc_no=doc_no)
     references_table.delete(doc_no=doc_no)
     contracts_table.delete(doc_no=doc_no)
