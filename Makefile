@@ -5,6 +5,7 @@ env:
 
 
 schema:
+	python opint/manage.py createdb
 	python opint/manage.py schema_import schema.yaml
 
 
