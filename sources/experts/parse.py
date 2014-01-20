@@ -5,6 +5,11 @@ from pprint import pprint
 from datetime import datetime
 
 from sources.util import engine, walk_path
+from sources.experts.util import exp_group, exp_sub_group, exp_group_type
+from sources.experts.util import exp_group_task, exp_group_associated_dg
+from sources.experts.util import exp_group_policy_area, exp_group_note
+from sources.experts.util import exp_group_member
+
 
 log = logging.getLogger('sources.experts.parse')
 NS = '{http://ec.europa.eu/transparency/regexpert/}'
@@ -82,38 +87,38 @@ def store_member(group_id, member, subgroup_name=None):
     member.pop('areas_represented')
     member.pop('categories')
     member.update({'group_id': group_id, 'subgroup_name': subgroup_name})
-    engine['exp_group_member'].upsert(member,
+    exp_group_member.upsert(member,
         ['group_id', 'subgroup_name', 'member_type', 'name', 'country'])
 
 
 def store_notes(group_id, note, category):
     note.update({'group_id': group_id, 'category': category})
-    engine['exp_group_note'].upsert(note,
+    exp_group_note.upsert(note,
         ['group_id', 'category', 'link', 'info'])
 
 
 def store_group(group):
     group_id = group.pop('id')
     for type_name in group.pop('types'):
-        engine['exp_group_type'].upsert(
+        exp_group_type.upsert(
             {'type': type_name, 'group_id': group_id},
             ['type', 'group_id'])
     for task_name in group.pop('tasks'):
-        engine['exp_group_task'].upsert(
+        exp_group_task.upsert(
             {'task': task_name, 'group_id': group_id},
             ['task', 'group_id'])
     for dg in group.pop('associated_dgs'):
-        engine['exp_group_associated_dg'].upsert(
+        exp_group_associated_dg.upsert(
             {'dg': dg, 'group_id': group_id},
             ['dg', 'group_id'])
     for policy_area in group.pop('policy_areas'):
-        engine['exp_group_policy_area'].upsert(
+        exp_group_policy_area.upsert(
             {'policy_area': policy_area, 'group_id': group_id},
             ['policy_area', 'group_id'])
     for member in group.pop('members'):
         store_member(group_id, member)
     for sub_group in group.pop('sub_groups'):
-        engine['exp_sub_group'].upsert(
+        exp_sub_group.upsert(
             {'name': sub_group['name'], 'group_id': group_id},
             ['name', 'group_id'])
         for member in sub_group.pop('members'):
@@ -127,7 +132,7 @@ def store_group(group):
     for note in group.pop('others'):
         store_notes(group_id, note, 'others')
     group['group_id'] = group_id
-    engine['exp_group'].upsert(group, ['group_id'])
+    exp_group.upsert(group, ['group_id'])
     #pprint(group)
 
 
