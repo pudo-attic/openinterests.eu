@@ -6,7 +6,9 @@ env:
 
 schema:
 	python opint/manage.py createdb
-	python opint/manage.py schema_import schema.yaml
+	python opint/manage.py schema_import schemata/base.yaml
+	python opint/manage.py schema_import schemata/ted.yaml
+	python opint/manage.py schema_import schemata/fts.yaml
 
 
 ####################################################
