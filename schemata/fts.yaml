@@ -1,0 +1,39 @@
+
+# FTS - EC Financial Transparency System 
+
+  - name: fts_committment
+    label: "EC Financial Transparency System: Committment"
+    obj: relation
+    attributes:
+      - name: transaction_id
+        label: Transaction ID (internal)
+      - name: amount
+        label: Amount (in this committment)
+      - name: total
+        label: Amount (total)
+      - name: article
+        label: Article (EU budget)
+      - name: item
+        label: Item (EU budget)
+      - name: title
+        label: Title (EU budget)
+      - name: chapter
+        label: Chapter (EU budget)
+      - name: budget_code
+        label: EU budget code
+      - name: budget_item
+        label: EU budget item
+      - name: cofinancing_rate
+        label: Co-financing rate (text)
+      - name: cofinancing_rate_pct
+        label: Co-financing rate (numeric)
+      - name: date
+        label: Year
+      - name: grant_subject
+        label: Grant subject
+      - name: position_key
+        label: Position key
+      - name: action_type
+        label: Action Type
+      - name: coordinator
+        label: Coordinator

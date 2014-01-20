@@ -1,0 +1,97 @@
+# This is a schema configuration for grano. 
+# For more details on what this does and how it works, see: 
+
+# System core schemata
+
+  - name: base
+    label: Common for all entities.
+    obj: entity
+    attributes:
+      - name: name
+        label: Name
+      - name: tagline
+        label: Short description
+
+
+# Common schemata
+
+  - name: public_body
+    label: Public body
+    obj: entity
+    attributes:
+      - name: public_body_type
+        label: Type of public body
+
+
+  - name: organisation
+    label: "Company, NGO or public institution"
+    obj: entity
+    attributes:
+      - name: abbreviation
+        label: Abbreviation
+      - name: mission
+        label: Mission statement
+
+  - name: person
+    label: An individual
+    obj: entity
+    attributes:
+      - name: first_name
+        label: First name
+      - name: last_name
+        label: Last name
+
+  - name: web
+    label: "An entity which maintains a presence on the web"
+    obj: entity
+    attributes:
+      - name: url
+        label: Website
+      - name: email
+        label: E-Mail
+
+  - name: address
+    label: Address
+    obj: entity
+    attributes:
+      - name: attention
+        label: Attention of
+      - name: address
+        label: Address
+      - name: city
+        label: City
+      - name: postcode
+        label: Postal code
+      - name: country
+        label: Country
+      - name: country_code
+        label: "Country Code (ISO 3166-2)"
+      - name: phone
+        label: Phone number
+      - name: fax
+        label: Fax number
+
+
+# An entity which has been geo-located. Since we have a strong focus on the EU here, 
+# we're storing information on the "National Unit of Territorial Statistics" (NUTS)
+# here, ie. the codes for EU regions on various levels.
+
+  - name: geolocated
+    label: Geo-located entity
+    obj: entity
+    attributes:
+      - name: lon
+        label: Longitude
+      - name: lat
+        label: Latitude
+      - name: nuts1
+        label: NUTS1 Code
+      - name: nuts1_label
+        label: NUTS1 Name
+      - name: nuts2
+        label: NUTS2 Code
+      - name: nuts2_label
+        label: NUTS2 Name
+      - name: nuts3
+        label: NUTS3 Code
+
