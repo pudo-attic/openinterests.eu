@@ -1,0 +1,34 @@
+
+
+  - name: expert_group
+    label: An EC/EP expert group
+    obj: entity
+    attributes:
+      - name: exp_identifier
+        label: Identifier of the expert group
+      - name: exp_scope
+        label: Scope of the expert group
+      - name: exp_active_since
+        label: Founding date of the expert group
+      - name: exp_status
+        label: Status of the expert group
+      - name: exp_mission
+        label: Mission statement
+
+
+  - name: expert_group_member
+    label: An EC/EP expert group member
+    obj: relation
+    attributes:
+      - name: exp_status
+        label: Member status
+      - name: exp_type
+        label: Member type
+
+
+  - name: expert_group_associated
+    label: Directorate General Association to Expert Groups
+    obj: relation
+    attributes:
+      - name: exp_role
+        label: Role of the DG

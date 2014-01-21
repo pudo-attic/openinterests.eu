@@ -16,9 +16,60 @@ EXPERTS_URL = 'http://ec.europa.eu/transparency/regexpert/index.cfm?do=transpare
 
 
 def load(loader, row):
-    
-    
-    pprint(dict(row))
+    grp_id = row.pop('group_id')
+
+    log.info("Loading: %s, %s", grp_id, row.get('name'))
+    grp = loader.make_entity(['public_body', 'organisation', 'expert_group'])
+    grp.set('name', row.pop('name'))
+    grp.set('abbreviation', row.pop('abbreviation'))
+    grp.set('exp_id', grp_id)
+    grp.set('exp_scope', row.pop('scope'))
+    grp.set('exp_mission', row.pop('mission'))
+    grp.set('exp_status', row.pop('status'))
+    grp.set('exp_active_since', row.pop('active_since'))
+    grp.save()
+
+    lead_dg = loader.make_entity(['public_body'])
+    lead_dg.set('name', row.pop('lead_dg'))
+    lead_dg.save()
+
+    rel = loader.make_relation('expert_group_associated', lead_dg, grp)
+    rel.set('role', 'lead')
+    rel.save()
+
+    for d in exp_group_associated_dg.find(group_id=grp_id):
+        dg = loader.make_entity(['public_body'])
+        dg.set('name', d.pop('dg'))
+        dg.save()
+
+        rel = loader.make_relation('expert_group_associated', dg, grp)
+        rel.set('role', 'associated')
+        rel.save()
+
+    #SUB_GROUPS = {}
+    # TODO: subgroups later.
+    for m in exp_group_member.find(group_id=grp_id):
+        schemata = []
+        if m['member_type'] == 'National administrations':
+            schemata.append('public_body')
+            m['name'] = '%(public_authorities)s (%(country)s)' % m
+        elif m['member_type'] == 'Organisation':
+            schemata.append('organisation')
+        else:
+            schemata.append('person')
+            
+        mem = loader.make_entity(schemata)
+        mem.set('name', m.pop('name'))
+        mem.save()
+
+        rel = loader.make_relation('expert_group_member', mem, grp)
+        rel.set('exp_status', m.pop('status'))
+        rel.set('exp_type', m.pop('member_type'))
+        rel.save()
+        #pprint(dict(m))
+
+    loader.persist()
+    #pprint(dict(row))
 
 
 def load_all():
