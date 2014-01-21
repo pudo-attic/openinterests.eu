@@ -29,8 +29,6 @@
     attributes:
       - name: abbreviation
         label: Abbreviation
-      - name: mission
-        label: Mission statement
 
   - name: person
     label: An individual
