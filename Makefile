@@ -10,6 +10,7 @@ schema:
 	python opint/manage.py schema_import schemata/ted.yaml
 	python opint/manage.py schema_import schemata/fts.yaml
 	python opint/manage.py schema_import schemata/experts.yaml
+	python opint/manage.py schema_import schemata/interests.yaml
 
 
 ####################################################
