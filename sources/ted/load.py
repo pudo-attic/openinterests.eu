@@ -45,6 +45,7 @@ def load(loader, c):
 		log.warning("No operator named, skipping!")
 		return
 
+	#print c['document_authority_type']
 	authority = load_entity(loader, c, 'contract_authority', schemata=['public_body'])
 	authority.set('public_body_type', c.pop('document_authority_type'))
 	authority.save()
