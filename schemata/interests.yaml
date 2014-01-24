@@ -1,0 +1,52 @@
+# EC/EP register of interests
+
+  - name: representative
+    label: Representative in the EC/EP register of interests
+    obj: entity
+    attributes:
+      - name: reg_identifier
+        label: Identifier in the register 
+      - name: reg_legal_status
+        label: Legal status
+      - name: reg_entry_status
+        label: Status of registration
+      - name: reg_activities
+        label: Lobbying activities
+      - name: reg_goals
+        label: Goals
+      - name: reg_networking
+        label: Networking activities
+      - name: registration_date 
+        label: Registration date
+      - name: main_category 
+        label: Main category
+      - name: sub_category 
+        label: Subcategory
+
+
+  - name: reg_role
+    label: A person's role
+    obj: relation
+    attributes: 
+      - name: role
+        label: Role
+      - name: position
+        label: Position
+      - name: role_start_date
+        label: Start date
+      - name: role_end_date
+        label: End date
+
+  - name: reg_membership
+    label: An organisation's involvement
+    obj: relation
+    attributes: []
+
+  - name: reg_turnover
+    label: Turnover for Lobbying
+    obj: relation
+    attributes:
+      - name: turnover_min
+        label: Minimal amount
+      - name: turnover_max
+        label: Maximal amount
