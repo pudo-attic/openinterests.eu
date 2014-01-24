@@ -1,4 +1,4 @@
-
+.PHONY: env
 
 env:
 	. .env
@@ -25,7 +25,10 @@ fts-parse: env
 fts-geocode: env
 	python sources/fts/geocode.py
 
-fts: fts-download fts-parse fts-geocode
+fts-load: env
+	python sources/fts/load.py
+
+fts: fts-download fts-parse fts-geocode fts-load
 
 
 ####################################################
@@ -37,7 +40,10 @@ experts-download: env
 experts-parse: env
 	python sources/experts/parse.py
 
-experts: experts-download experts-parse
+experts-load: env
+	python sources/experts/load.py
+
+experts: experts-download experts-parse experts-load
 
 
 ####################################################
@@ -55,7 +61,10 @@ ted-iso-list: env
 ted-isos: ted-iso-list
 	sh scripts/update-ted.sh
 
-ted: ted-download ted-parse
+ted-load: env
+	python sources/ted/load.py
+
+ted: ted-download ted-parse ted-load
 
 
 ####################################################
@@ -73,5 +82,8 @@ interests-categories: env
 interests-geocode: env
 	python sources/interests/geocode.py
 
-interests: interests-parse accredditations-parse interests-categories interests-geocode
+interests-load: env
+	python sources/interests/load.py
+
+interests: interests-parse accredditations-parse interests-categories interests-geocode interests-load
 
