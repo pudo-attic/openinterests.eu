@@ -1,0 +1,23 @@
+Flask==0.10.1
+Flask-Assets==0.8
+Flask-Login==0.2.7
+Flask-OAuth==0.12
+Flask-SQLAlchemy==1.0
+Flask-Script==0.5.3
+PyYAML==3.10
+SQLAlchemy==0.9.1
+Unidecode==0.04.14
+blinker==1.3
+bpython==0.12
+cssmin==0.1.4
+dataset==0.4.0
+elasticsearch==0.4.4
+#-e git+git@github.com:pudo/grano.git@ffec45319113255a6851778110e629424092587a#egg=grano-master
+lxml==3.2.5
+oauth2==1.5.211
+psycopg2==2.5.2
+pyshp==1.2.0
+-e git+https://github.com/gka/pyshpgeocode@5288e6e6e17b87d43925ca9ab2d99fdb6e4a8d74#egg=pyshpgeocode-master
+python-slugify==0.0.7
+requests==2.2.0
+unicodecsv==0.9.4
