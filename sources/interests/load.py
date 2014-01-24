@@ -100,6 +100,8 @@ def load(loader, row):
         to.set('turnover_min', fdt.pop('min'))
         to.set('turnover_max', fdt.pop('max'))
         to.save()
+
+    # TODO - include financial reports into rep entity
     
     #pprint(dict(row))
     loader.persist()
