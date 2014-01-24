@@ -1,5 +1,6 @@
 #coding: utf-8
 import HTMLParser
+import string
 import logging
 from lxml import etree
 
@@ -66,12 +67,19 @@ def convert_commitment(base, commitment):
         log.info('%s - %s', row['grant_subject'], row['beneficiary'])
         fts_entry.upsert(row, ['source_file', 'source_id'])
 
+def clean_text(text):
+    h = HTMLParser.HTMLParser()
+    text = filter(string.printable.__contains__, text)
+    text = h.unescape(text)
+    text = text.replace('&', '&amp;')
+    return text.encode('utf-8')
+
 
 def convert_file(file_name):
-    h = HTMLParser.HTMLParser()
     with open(file_name, 'r') as fh:
+        print [file_name]
         text = fh.read().decode('utf-8')
-        text = h.unescape(text).encode('utf-8')
+        text = clean_text(text)
         doc = etree.fromstring(text)
         #engine.begin()
         base = {'source_file': file_name, 'source_id': 0}
