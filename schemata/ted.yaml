@@ -5,10 +5,13 @@
 
   - name: ted_contract_award
     label: Tenders Electronic Daily - contract award notice
+    label_in: Public contracts received
+    label_out: Public contracts awarded
     obj: relation
     attributes:
       - name: transaction_id
         label: Transaction ID (internal)
+        hidden: yes
       - name: document_no
         label: Document number
       - name: activity_contractor

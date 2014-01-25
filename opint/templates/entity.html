@@ -1,3 +1,4 @@
+{% import "_pager.html" as pagination %}
 {% extends "layout.html" %}
 
 {% block title %}
@@ -14,11 +15,35 @@
         {% endfor %}
     </p>
 
-    {% for schema in entity.inbound_schemata %}
-        <h3>{{schema.label}}</h3>
-        inbound
+    {% for schema, spager in inbound_sections %}
+        <a name="{{spager.name}}"></a>
+        <h3>{{schema.label_in}}</h3>
+        <ul class="entity-relations">
+            {% for rel in spager %}
+                <li>
+                    <a class="other" href="{{url_for('entities.view', id=rel.source.id)}}">&laquo; {{rel.source['name'].value}}</a>
+                    <span class="details">(<a href="{{url_for('relations.view', id=rel.id)}}">Details</a>)</span>
+                </li>
+            {% endfor %}
+        </ul>
+        {{ pagination.render(spager) }}
     {% endfor %}
 
+    {% for schema, spager in outbound_sections %}
+        <a name="{{spager.name}}"></a>
+        <h3>{{schema.label_out}}</h3>
+        <ul class="entity-relations">
+            {% for rel in spager %}
+                <li>
+                    <a class="other" href="{{url_for('entities.view', id=rel.target.id)}}">&raquo; {{rel.target['name'].value}}</a>
+                    <span class="details">(<a href="{{url_for('relations.view', id=rel.id)}}">Details</a>)</span>
+                </li>
+            {% endfor %}
+        </ul>
+        {{ pagination.render(spager) }}
+    {% endfor %}
+
+    <h3>Details about {{entity['name'].value}}</h3>
     <table class="table table-condensed">
         {% for prop in entity.active_properties %}
             {% if prop.name != 'name' %}
@@ -37,7 +62,7 @@
         {% endfor %}
     </table>
 
-    <pre><code>{{ entity.to_index() | tojson(indent=2) }}</code></pre>
+    <!--pre><code>{{ entity.to_index() | tojson(indent=2) }}</code></pre-->
 {% endblock %}
 
 {% block js %}{% endblock %}

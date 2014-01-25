@@ -3,6 +3,8 @@
 
   - name: fts_committment
     label: "EC Financial Transparency System: Committment"
+    label_in: Committments received from the EC
+    label_out: Financial committments
     obj: relation
     attributes:
       - name: transaction_id

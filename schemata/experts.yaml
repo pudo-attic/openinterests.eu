@@ -1,7 +1,7 @@
 
 
   - name: expert_group
-    label: An EC/EP expert group
+    label: EC/EP Expert Group
     obj: entity
     attributes:
       - name: exp_identifier
@@ -18,6 +18,8 @@
 
   - name: expert_group_member
     label: An EC/EP expert group member
+    label_in: Expert group members
+    label_out: Expert group membership
     obj: relation
     attributes:
       - name: exp_status
@@ -28,6 +30,8 @@
 
   - name: expert_group_associated
     label: Directorate General Association to Expert Groups
+    label_in: Associated Directorates-General
+    label_out: Expert group associations
     obj: relation
     attributes:
       - name: exp_role
