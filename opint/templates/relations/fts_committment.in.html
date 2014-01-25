@@ -4,3 +4,5 @@ Received committment of {{relation['amount'].value}} EUR from <a href="{{url_for
 {% if relation['grant_subject'].value %}
     for: {{relation['grant_subject'].value}} 
 {% endif %}
+
+(<a href="{{url_for('relations.view', id=relation.id)}}">Details</a>)
