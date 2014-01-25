@@ -57,7 +57,10 @@ def load(loader, row):
         schemata = []
         if m['member_type'] == 'National administrations':
             schemata.append('public_body')
-            m['name'] = '%(public_authorities)s (%(country)s)' % m
+            if m['public_authorities']:
+                m['name'] = '%(public_authorities)s (%(country)s)' % m
+            else:
+                m['name'] = m['country']
         elif m['member_type'] == 'Organisation':
             schemata.append('organisation')
         else:
