@@ -1,3 +1,4 @@
+{% import "_pager.html" as pagination %}
 {% extends "layout.html" %}
 
 {% block title %}
@@ -5,7 +6,34 @@
 {% endblock %}
 
 {% block content %}
-    Ich bin eine Banane!
+    <h3>
+        Browse interests
+        {% if searcher.query_text %}
+            matching '{{searcher.query_text}}'
+        {% endif %}
+    </h3>
+    <form action="{{url_for('entities.search')}}" method="GET" class="form-horizontal" role="form">
+        <div class="form-group">
+            <div class="col-xs-12">
+                <input type="text" class="form-controls col-xs-12 search-box" name="q"
+                    value="{{searcher.query_text}}" placeholder="Search for people, compnanies or public bodies...">
+            </div>
+        </div>
+    </form>
+
+    <ul class="search-results">
+        {% for hit in pager %}
+            <li>
+                <a href="{{url_for('entities.view', id=hit.get('_id'))}}">{{hit.get('_source').get('name')}}</a>
+                <span class="schemata">
+                    {% for schema in hit.get('_source').get('schemata') %}
+                        &middot; {{schema.get('label')}} 
+                    {% endfor %}
+                </span>
+            </li>
+        {% endfor %}
+    </ul>
+    {{ pagination.render(pager) }}
 {% endblock %}
 
 {% block js %}{% endblock %}
