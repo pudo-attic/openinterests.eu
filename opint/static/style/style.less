@@ -1,0 +1,59 @@
+
+@bgColor: #444;
+@fgColor: #eee;
+@themeColor: #ff8000;
+
+
+body {
+    background-color: @bgColor;
+    color: @fgColor;
+    font-family: 'Convergence', sans-serif;
+    font-size: 1.5em;
+}
+
+a {
+    color: @themeColor;
+}
+
+a:hover {
+    color: darken(@themeColor, 20%);
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Antic Slab', sans-serif;
+}
+
+@media (min-width: 768px) {
+
+    .container {
+        max-width: 730px;
+    }
+
+}
+
+header {
+    margin-bottom: 30px;
+    border-bottom: 1px solid darken(@fgColor, 50%);
+    padding-bottom: 10px;
+
+    h1 {
+        font-weight: 900;
+    }
+}
+
+footer {
+    margin-top: 30px;
+    border-top: 1px solid darken(@fgColor, 50%);
+    padding-top: 10px;
+
+    ul {
+        text-align: center;
+        list-style-type: none;
+
+        li {
+            display: inline-block;
+            padding-left: 1em;
+            padding-right: 1em;
+        }
+    }
+}
