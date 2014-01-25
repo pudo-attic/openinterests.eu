@@ -4,7 +4,7 @@
 # System core schemata
 
   - name: base
-    label: Common for all entities.
+    label: Common
     obj: entity
     attributes:
       - name: name
@@ -24,7 +24,7 @@
 
 
   - name: organisation
-    label: "Company, NGO or public institution"
+    label: Organisation
     obj: entity
     attributes:
       - name: abbreviation
@@ -34,7 +34,7 @@
 
 
   - name: person
-    label: An individual
+    label: Individual
     obj: entity
     attributes:
       - name: first_name
@@ -45,7 +45,7 @@
         label: Title
 
   - name: web
-    label: "An entity which maintains a presence on the web"
+    label: Web
     obj: entity
     attributes:
       - name: url
@@ -84,7 +84,7 @@
 # here, ie. the codes for EU regions on various levels.
 
   - name: geolocated
-    label: Geo-located entity
+    label: Geo-located
     obj: entity
     attributes:
       - name: lon
