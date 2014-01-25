@@ -18,7 +18,7 @@
             <td colspan="2"><a href="{{url_for('entities.view', id=relation.target.id)}}">{{relation.target['name'].value}}</a></td>
         </tr>
         {% for prop in relation.active_properties %}
-            {% if not prop.hidden %}
+            {% if not relation.get_attribute(prop.name).hidden %}
                 <tr>
                     <th width="40%" class="attributes">{{relation.get_attribute(prop.name).label}}</th>
                     <td>{{prop.value | safe}}</td>
