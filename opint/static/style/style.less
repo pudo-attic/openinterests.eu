@@ -1,7 +1,8 @@
 
 @bgColor: #444;
 @fgColor: #eee;
-@themeColor: #ff8000;
+//@themeColor: #ff8000;
+@themeColor: #00b6ff;
 
 
 body {
@@ -31,6 +32,10 @@ h1, h2, h3, h4, h5 {
 
 }
 
+hr {
+    border-top: 1px solid darken(@fgColor, 50%);
+}
+
 header {
     margin-bottom: 30px;
     border-bottom: 1px solid darken(@fgColor, 50%);
@@ -38,7 +43,15 @@ header {
 
     h1 {
         font-weight: 900;
+
+        .logo-highlight {
+            color: darken(@themeColor, 20%);
+        }
     }
+}
+
+p.claim {
+    font-size: 1.6em;
 }
 
 footer {
@@ -56,4 +69,42 @@ footer {
             padding-right: 1em;
         }
     }
+}
+
+
+input.search-box {
+    background-color: lighten(@bgColor, 10%);
+    border: 1px solid lighten(@bgColor, 20%);
+    color: @fgColor;
+    outline: 0;
+    padding: 7px;
+}
+
+.search-results {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        padding-top: 0.3em;
+        padding-bottom: 0.2em;
+        border-bottom: 1px solid  lighten(@bgColor, 10%);
+
+        .schemata {
+            font-size: 0.8em;
+            color: darken(@fgColor, 20%);
+        }
+    }
+}
+
+.pager-box {
+    text-align: center;
+    
+    .pagination {
+    li a {
+        background-color: @bgColor;
+        border-color: lighten(@bgColor, 20%);
+    }
+}
+
 }
