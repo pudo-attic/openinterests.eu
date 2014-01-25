@@ -1,1 +1,20 @@
-hello.
+{% extends "layout.html" %}
+
+{% block title %}
+  {{ entity['name'].value }}
+{% endblock %}
+
+{% block content %}
+    <h2>{{ entity['name'].value }}</h2>
+    <p class="schemata">
+        {% for schema in entity.schemata %}
+            {% if schema.name != 'base' %}
+                {{schema.label}} &middot;
+            {% endif %}
+        {% endfor %}
+    </p>
+
+    <pre><code>{{ entity.to_index() | tojson(indent=2) }}</code></pre>
+{% endblock %}
+
+{% block js %}{% endblock %}

@@ -36,6 +36,12 @@ hr {
     border-top: 1px solid darken(@fgColor, 50%);
 }
 
+pre {
+    background-color: darken(@bgColor, 10%);
+    border-color:  darken(@bgColor, 20%);
+    color: lighten(@fgColor, 10%);
+}
+
 header {
     margin-bottom: 30px;
     border-bottom: 1px solid darken(@fgColor, 50%);
@@ -99,12 +105,19 @@ input.search-box {
 
 .pager-box {
     text-align: center;
-    
+
     .pagination {
-    li a {
-        background-color: @bgColor;
-        border-color: lighten(@bgColor, 20%);
+        li a {
+            background-color: @bgColor;
+            border-color: lighten(@bgColor, 20%);
+        }
     }
 }
 
+th.attributes {
+    color: darken(@fgColor, 20%);
+}
+
+.source {
+    font-size: 0.7em;
 }
