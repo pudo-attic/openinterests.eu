@@ -22,9 +22,9 @@
     label_out: Expert group membership
     obj: relation
     attributes:
-      - name: exp_status
+      - name: member_status
         label: Member status
-      - name: exp_type
+      - name: member_type
         label: Member type
 
 
@@ -34,5 +34,5 @@
     label_out: Expert group associations
     obj: relation
     attributes:
-      - name: exp_role
+      - name: role
         label: Role of the DG

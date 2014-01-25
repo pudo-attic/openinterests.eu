@@ -1,0 +1,8 @@
+<a href="{{url_for('relations.view', id=relation.id)}}"><i class="fa fa-paperclip spacer"></i></a>
+
+Awarded contract <a href="{{url_for('relations.view', id=relation.id)}}">{{relation['document_no'].value}}</a> for 
+<strong>{{relation['title_text'].value}}</strong>
+{% if relation['contract_title'].value %} 
+    ({{relation['contract_title'].value}})
+{% endif %}
+by <a href="{{url_for('entities.view', id=relation.source.id)}}">{{relation.source['name'].value}}</a>

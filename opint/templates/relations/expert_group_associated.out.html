@@ -1,0 +1,8 @@
+<a href="{{url_for('relations.view', id=relation.id)}}"><i class="fa fa-sitemap spacer"></i></a>
+                    
+<a href="{{url_for('entities.view', id=relation.target.id)}}">{{relation.target['name'].value}}</a>
+{% if relation['role'].value == 'lead' %}
+    (Lead)
+{% else %}
+    (Associated)
+{% endif %}

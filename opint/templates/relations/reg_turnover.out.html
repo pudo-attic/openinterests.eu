@@ -1,0 +1,9 @@
+<a href="{{url_for('relations.view', id=relation.id)}}"><i class="fa fa-money spacer"></i></a>
+                    
+Paid 
+{% if relation['turnover_min'].value and relation['turnover_max'].value %}
+    {{relation['turnover_min'].value}} - {{relation['turnover_max'].value}}
+{% else %}
+    ca. {{relation['turnover_min'].value}} {{relation['turnover_max'].value}}
+{% endif %}
+EUR to <a href="{{url_for('entities.view', id=relation.target.id)}}">{{relation.target['name'].value}}</a>
