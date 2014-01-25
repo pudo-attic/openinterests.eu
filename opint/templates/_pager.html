@@ -1,22 +1,24 @@
 {% macro render(pager) %}
-    <div class="pager-box">
-        <ul class="pagination">
-            {% if pager.has_prev %}
-                <li><a href="{{pager.prev_url}}">&laquo;</a></li>
-            {% endif %}
-
-            {% for page in pager.range %}
-                {% if pager.page == page %}
-                    <li class="active"><a>{{page}}</a></li>
-                {% else %}
-                    <li><a href="{{pager.page_url(page)}}">{{page}}</a></li>
+    {% if pager.pages > 1 %}
+        <div class="pager-box">
+            <ul class="pagination">
+                {% if pager.has_prev %}
+                    <li><a href="{{pager.prev_url}}">&laquo;</a></li>
                 {% endif %}
 
-            {% endfor %}
+                {% for page in pager.range %}
+                    {% if pager.page == page %}
+                        <li class="active"><a>{{page}}</a></li>
+                    {% else %}
+                        <li><a href="{{pager.page_url(page)}}">{{page}}</a></li>
+                    {% endif %}
 
-            {% if pager.has_next %}
-                <li><a href="{{pager.next_url}}">&raquo;</a></li>
-            {% endif %}
-        </ul>
-    </div>
+                {% endfor %}
+
+                {% if pager.has_next %}
+                    <li><a href="{{pager.next_url}}">&raquo;</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    {% endif %}
 {% endmacro %}
