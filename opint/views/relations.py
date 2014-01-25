@@ -1,0 +1,14 @@
+from flask import Blueprint, render_template, request
+
+from grano.service import search_entities
+from grano.lib.pager import Pager
+from grano.model import Relation
+
+
+relations = Blueprint('relations', __name__, static_folder='../static', template_folder='../templates')
+
+
+@relations.route('/relations/<id>')
+def view(id):
+    relation = Relation.by_id(id)
+    return render_template('relation.html', relation=relation)

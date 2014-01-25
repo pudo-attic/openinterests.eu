@@ -6,12 +6,12 @@
 {% endblock %}
 
 {% block content %}
-    <h3>
+    <h2>
         Browse interests
         {% if searcher.query_text %}
             matching '{{searcher.query_text}}'
         {% endif %}
-    </h3>
+    </h2>
     <form action="{{url_for('entities.search')}}" method="GET" class="form-horizontal" role="form">
         <div class="form-group">
             <div class="col-xs-12">

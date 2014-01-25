@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Relation: {{relation.schema.label}}
+{% endblock %}
+
+{% block content %}
+    <h2>{{relation.schema.label}}</h2>
+
+
+    <table class="table table-condensed">
+        <tr>
+            <th width="40%" class="attributes">Origin</th>
+            <td colspan="2"><a href="{{url_for('entities.view', id=relation.source.id)}}">{{relation.source['name'].value}}</a></td>
+        </tr>
+        <tr>
+            <th width="40%" class="attributes">Destination</th>
+            <td colspan="2"><a href="{{url_for('entities.view', id=relation.target.id)}}">{{relation.target['name'].value}}</a></td>
+        </tr>
+        {% for prop in relation.active_properties %}
+        <tr>
+            <th width="40%" class="attributes">{{relation.get_attribute(prop.name).label}}</th>
+            <td>{{prop.value | safe}}</td>
+            <td class="source"><a href="{{prop.source_url}}">Source</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+
+{% block js %}{% endblock %}
