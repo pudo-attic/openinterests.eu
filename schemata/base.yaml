@@ -9,6 +9,7 @@
     attributes:
       - name: name
         label: Name
+        hidden: yes
       - name: tagline
         label: Short description
 

@@ -1,0 +1,6 @@
+<a href="{{url_for('relations.view', id=relation.id)}}"><i class="fa fa-user spacer"></i></a>
+                    
+Employs <a href="{{url_for('entities.view', id=relation.source.id)}}">{{relation.source['name'].value}}</a>
+{% if relation['position'].value %}
+    as {{relation['position'].value}}
+{% endif %}

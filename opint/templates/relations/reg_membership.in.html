@@ -1,0 +1,3 @@
+<a href="{{url_for('relations.view', id=relation.id)}}"><i class="fa fa-umbrella spacer"></i></a>
+                    
+<a href="{{url_for('entities.view', id=relation.source.id)}}">{{relation.source['name'].value}}</a>

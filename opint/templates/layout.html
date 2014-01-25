@@ -12,12 +12,12 @@
 
   {% assets filters="less,cssmin,cssrewrite", output="style.%(version)s.css",
       "entities/vendor/bootstrap/less/bootstrap.less",
-      "entities/vendor/font-awesome/less/font-awesome.less",
       "entities/style/style.less"
   %}
     <link type="text/css" href="{{ ASSET_URL }}" rel="stylesheet">
   {% endassets %}
 
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <link rel="shortcut icon" href="http://assets.pudo.org/img/favicon.ico">
 </head>
 <body>

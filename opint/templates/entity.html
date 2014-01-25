@@ -21,8 +21,7 @@
         <ul class="entity-relations">
             {% for rel in spager %}
                 <li>
-                    <a class="other" href="{{url_for('entities.view', id=rel.source.id)}}">&laquo; {{rel.source['name'].value}}</a>
-                    <span class="details">(<a href="{{url_for('relations.view', id=rel.id)}}">Details</a>)</span>
+                    {{ render_relation(schema, 'in', entity, rel )}}
                 </li>
             {% endfor %}
         </ul>
@@ -35,8 +34,7 @@
         <ul class="entity-relations">
             {% for rel in spager %}
                 <li>
-                    <a class="other" href="{{url_for('entities.view', id=rel.target.id)}}">&raquo; {{rel.target['name'].value}}</a>
-                    <span class="details">(<a href="{{url_for('relations.view', id=rel.id)}}">Details</a>)</span>
+                    {{ render_relation(schema, 'out', entity, rel )}}
                 </li>
             {% endfor %}
         </ul>
