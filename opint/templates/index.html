@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Who wants what in the European Union
+{% endblock %}
+
+{% block content %}
+    <p class="claim">
+        See which companies, people and organisations have financial or political
+        interests in the European institutions.
+    </p>
+    <hr>
+    <form action="{{url_for('entities.search')}}" method="GET" class="form-horizontal" role="form">
+        <div class="form-group">
+            <div class="col-xs-12">
+                <input type="text" class="form-controls col-xs-12 search-box" name="q"
+                    placeholder="Search for people, compnanies or public bodies...">
+            </div>
+        </div>
+    </form>
+    
+    <p>
+        OpenInterests catalogues actors involved in lobbying, expert groups, public
+        expenditure and procurement and allows you to explore the interactions between 
+        them.
+    </p>
+{% endblock %}
+
+{% block js %}{% endblock %}
+
