@@ -6,7 +6,7 @@
   - name: ted_contract_award
     label: Tenders Electronic Daily - contract award notice
     label_in: Public contracts received
-    label_out: Public contracts awarded
+    label_out: Contracts awarded to companies
     obj: relation
     attributes:
       - name: transaction_id
