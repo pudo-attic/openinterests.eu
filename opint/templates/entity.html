@@ -46,7 +46,7 @@
     <h3>Details about {{entity['name'].value}}</h3>
     <table class="table table-condensed">
         {% for prop in entity.active_properties %}
-            {% if prop.name != 'name' %}
+            {% if not prop.hidden %}
                 <tr>
                     <th width="40%" class="attributes">{{entity.get_attribute(prop.name).label}}</th>
                     <td>{{prop.value | safe}}</td>
@@ -54,7 +54,7 @@
                         {% if prop.source_url %}
                             <a href="{{prop.source_url}}">Source</a>
                         {% else %}
-                            <a class="broken-source">Source</a>
+                            <a class="broken-source">Unsourced</a>
                         {% endif %}
                     </td>
                 </tr>
