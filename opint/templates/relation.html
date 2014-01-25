@@ -21,7 +21,13 @@
         <tr>
             <th width="40%" class="attributes">{{relation.get_attribute(prop.name).label}}</th>
             <td>{{prop.value | safe}}</td>
-            <td class="source"><a href="{{prop.source_url}}">Source</a></td>
+            <td class="source">
+                {% if prop.source_url %}
+                    <a href="{{prop.source_url}}">Source</a>
+                {% else %}
+                    <a class="broken-source">Source</a>
+                {% endif %}
+            </td>
         </tr>
         {% endfor %}
     </table>
