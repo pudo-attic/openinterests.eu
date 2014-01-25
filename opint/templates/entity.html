@@ -14,7 +14,20 @@
         {% endfor %}
     </p>
 
-    <pre><code>{{ entity.to_index() | tojson(indent=2) }}</code></pre>
+
+    <table class="table table-condensed">
+        {% for prop in entity.active_properties %}
+            {% if prop.name != 'name' %}
+                <tr>
+                    <th width="40%" class="attributes">{{entity.get_attribute(prop.name).label}}</th>
+                    <td>{{prop.value | safe}}</td>
+                    <td class="source"><a href="{{prop.source_url}}">Source</a></td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+
+    <!--pre><code>{{ entity.to_index() | tojson(indent=2) }}</code></pre-->
 {% endblock %}
 
 {% block js %}{% endblock %}
