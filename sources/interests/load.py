@@ -13,16 +13,18 @@ from sources.interests.util import reg_representative, reg_organisation
 
 log = logging.getLogger('sources.interests.load')
 EXPERTS_URL = 'http://ec.europa.eu/transparency/regexpert/index.cfm?do=transparency.showList'
-
+URL = 'http://ec.europa.eu/transparencyregister/public/consultation/displaylobbyist.do?id=%s'
 
 def load(loader, row):
     row.pop('id')
     
     etl_id = row.pop('etl_id')
     rep_id = row.pop('identification_code')
+    source_url = URL % rep_id
 
     log.info("Loading: %s, %s", rep_id, row.get('name'))
-    rep = loader.make_entity(['address', 'web', 'geolocated', 'organisation', 'representative'])
+    rep = loader.make_entity(['address', 'web', 'geolocated', 'organisation', 'representative'],
+            source_url=source_url)
     rep.set('name', row.pop('name'))
     rep.set('abbreviation', row.pop('acronym'))
     rep.set('reg_identifier', rep_id)
@@ -37,14 +39,15 @@ def load(loader, row):
     rep.set('phone', '+' + (row.pop('contact_indic_phone') or '') + ' ' + (row.pop('contact_phone') or ''))
     rep.set('fax', '+' + (row.pop('contact_indic_fax') or '') + ' ' + (row.pop('contact_fax') or ''))
 
-    rep.set('lon', row.pop('contact_lon', None))
-    rep.set('lat', row.pop('contact_lat', None))
-    rep.set('nuts1', row.pop('contact_nuts1', None))
-    rep.set('nuts1_label', row.pop('contact_nuts1_label', None))
-    rep.set('nuts2', row.pop('contact_nuts2', None))
-    rep.set('nuts2_label', row.pop('contact_nuts2_label', None))
-    rep.set('nuts3', row.pop('contact_nuts3', None))
-    rep.set('nuts3_label', row.pop('contact_nuts3_label', None))
+    osm_url = 'http://open.mapquestapi.com/nominatim'
+    rep.set('lon', row.pop('contact_lon', None), source_url=osm_url)
+    rep.set('lat', row.pop('contact_lat', None), source_url=osm_url)
+    rep.set('nuts1', row.pop('contact_nuts1', None), source_url=osm_url)
+    rep.set('nuts1_label', row.pop('contact_nuts1_label', None), source_url=osm_url)
+    rep.set('nuts2', row.pop('contact_nuts2', None), source_url=osm_url)
+    rep.set('nuts2_label', row.pop('contact_nuts2_label', None), source_url=osm_url)
+    rep.set('nuts3', row.pop('contact_nuts3', None), source_url=osm_url)
+    rep.set('nuts3_label', row.pop('contact_nuts3_label', None), source_url=osm_url)
 
     rep.set('reg_legal_status', row.pop('legal_status'))
     rep.set('reg_entry_status', row.pop('status'))
@@ -66,14 +69,14 @@ def load(loader, row):
     
     # people
     for p in reg_person.find(representative_etl_id=etl_id):
-        per = loader.make_entity(['person'])
+        per = loader.make_entity(['person'], source_url=source_url)
         per.set('name', p.pop('name'))
         per.set('title', p.pop('title'))
         per.set('last_name', p.pop('last_name'))
         per.set('first_name', p.pop('first_name'))
         per.save()
 
-        role = loader.make_relation('reg_role', per, rep)
+        role = loader.make_relation('reg_role', per, rep, source_url=source_url)
         role.set('role', p.pop('role'))
         role.set('position', p.pop('position'))
         role.save()
@@ -82,21 +85,22 @@ def load(loader, row):
 
     # organisations
     for o in reg_organisation.find(representative_etl_id=etl_id):
-        org = loader.make_entity(['organisation'])
+        org = loader.make_entity(['organisation'], source_url=source_url)
         org.set('name', o.pop('name'))
         org.set('number_of_members', o.pop('number_of_members'))
         org.save()
 
-        role = loader.make_relation('reg_membership', org, rep)
+        role = loader.make_relation('reg_membership', org, rep,
+            source_url=source_url)
         role.save()
 
     # turnover 
     for fdt in reg_financial_data_turnover.find(representative_etl_id=etl_id):
-        org = loader.make_entity(['organisation'])
+        org = loader.make_entity(['organisation'], source_url=source_url)
         org.set('name', fdt.pop('name'))
         org.save()        
 
-        to = loader.make_relation('reg_turnover', org, rep)
+        to = loader.make_relation('reg_turnover', org, rep, source_url=source_url)
         to.set('turnover_min', fdt.pop('min'))
         to.set('turnover_max', fdt.pop('max'))
         to.save()

@@ -20,14 +20,15 @@ def load(loader, row):
 	bfry.set('name', row.pop('beneficiary'))
 	bfry.set('acronym', row.pop('alias'))
 
-	bfry.set('lon', row.pop('lon'))
-	bfry.set('lat', row.pop('lat'))
-	bfry.set('nuts1', row.pop('nuts1'))
-	bfry.set('nuts1_label', row.pop('nuts1_label'))
-	bfry.set('nuts1', row.pop('nuts2'))
-	bfry.set('nuts1_label', row.pop('nuts2_label'))
-	bfry.set('nuts1', row.pop('nuts3'))
-	bfry.set('nuts1_label', row.pop('nuts3_label'))
+	osm_url = 'http://open.mapquestapi.com/nominatim'
+	bfry.set('lon', row.pop('lon'), source_url=osm_url)
+	bfry.set('lat', row.pop('lat'), source_url=osm_url)
+	bfry.set('nuts1', row.pop('nuts1'), source_url=osm_url)
+	bfry.set('nuts1_label', row.pop('nuts1_label'), source_url=osm_url)
+	bfry.set('nuts1', row.pop('nuts2'), source_url=osm_url)
+	bfry.set('nuts1_label', row.pop('nuts2_label'), source_url=osm_url)
+	bfry.set('nuts1', row.pop('nuts3'), source_url=osm_url)
+	bfry.set('nuts1_label', row.pop('nuts3_label'), source_url=osm_url)
 
 	bfry.set('address', row.pop('address'))
 	bfry.set('city', row.pop('city'))

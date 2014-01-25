@@ -16,8 +16,9 @@ a {
     color: @themeColor;
 }
 
-a.broken-source {
+a.broken-source, a.broken-source:hover {
     color: red;
+    text-decoration: none;
 }
 
 a:hover {
@@ -46,6 +47,10 @@ pre {
     color: lighten(@fgColor, 10%);
 }
 
+.table tbody tr th, .table tbody tr td {
+    border-color: darken(@fgColor, 50%);
+}
+
 header {
     margin-bottom: 30px;
     border-bottom: 1px solid darken(@fgColor, 50%);
@@ -56,6 +61,16 @@ header {
 
         .logo-highlight {
             color: darken(@themeColor, 20%);
+        }
+
+        a:hover {
+            text-decoration: none;
+            color: auto;
+            color: @themeColor;
+
+            .logo-highlight {
+                color: darken(@themeColor, 20%);
+            }
         }
     }
 }

@@ -20,8 +20,8 @@ def cleanup(c):
 	return c
 
 
-def load_entity(loader, c, prefix, schemata=[]):
-	e = loader.make_entity(['organisation', 'web', 'address'] + schemata)
+def load_entity(loader, c, prefix, schemata=[], source_url=None):
+	e = loader.make_entity(['organisation', 'web', 'address'] + schemata, source_url=source_url)
 	e.set('name', c.pop(prefix + '_official_name'))
 	e.set('address', c.pop(prefix + '_address', None))
 	e.set('city', c.pop(prefix + '_town', None))
@@ -46,14 +46,16 @@ def load(loader, c):
 		return
 
 	#print c['document_authority_type']
-	authority = load_entity(loader, c, 'contract_authority', schemata=['public_body'])
+	authority = load_entity(loader, c, 'contract_authority',
+		schemata=['public_body'], source_url=source_url)
 	authority.set('public_body_type', c.pop('document_authority_type'))
 	authority.save()
 
-	operator = load_entity(loader, c, 'contract_operator')
+	operator = load_entity(loader, c, 'contract_operator', source_url=source_url)
 	operator.save()
 
-	tx = loader.make_relation('ted_contract_award', authority, operator)
+	tx = loader.make_relation('ted_contract_award', authority, operator,
+		source_url=source_url)
 	tx_id = '%s // %s' % (c['contract_doc_no'], c.pop('contract_index'))
 	tx.unique('transaction_id')
 	tx.set('transaction_id', tx_id)
