@@ -40,3 +40,5 @@ nosetests.xml
 env/*
 grano/*
 source_data/*
+
+opint/static/vendor/*

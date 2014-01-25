@@ -1,0 +1,13 @@
+{
+  "name": "openinterests",
+  "version": "0.1.0",
+  "main": "opint/static/css/main.css",
+  "ignore": [
+    ".jshintrc",
+    "**/*.txt"
+  ],
+  "dependencies": {
+    "bootstrap": "3.0.0",
+    "font-awesome": "~4.0.3"
+  }
+}
