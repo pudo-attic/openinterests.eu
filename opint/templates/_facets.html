@@ -1,7 +1,14 @@
-{% macro render(values) %}
+{% macro render(values, filter_name, pager) %}
     <ul class="facets">
         {% for schema, count in values %}
-            <li><a href="#">{{schema.label}}</a> <span class="count">({{count}})</span></li>
+            {% if pager.has_url_state('filter-'+filter_name, schema.name) %}
+                <li><a class="active" href="{{pager.remove_url_state('filter-'+filter_name, schema.name)}}">
+                <i class="fa fa-filter"></i> {{schema.label}}</a> 
+            {% else %}
+                <li><a href="{{pager.add_url_state('filter-'+filter_name, schema.name)}}">{{schema.label}}</a> 
+                <span class="count">({{count}})</span>
+            {% endif %}
+            </li>
         {% endfor %}
     </ul>
 {% endmacro %}
