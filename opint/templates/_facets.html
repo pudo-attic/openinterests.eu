@@ -1,0 +1,7 @@
+{% macro render(values) %}
+    <ul class="facets">
+        {% for schema, count in values %}
+            <li><a href="#">{{schema.label}}</a> <span class="count">({{count}})</span></li>
+        {% endfor %}
+    </ul>
+{% endmacro %}

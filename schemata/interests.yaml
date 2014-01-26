@@ -25,7 +25,7 @@
 
 
   - name: reg_role
-    label: A person's role
+    label: Lobbyist
     label_in: Personnel
     label_out: Involvement in lobby representatives
     obj: relation
@@ -40,14 +40,14 @@
         label: End date
 
   - name: reg_membership
-    label: An organisation's involvement
+    label: Lobby Member
     label_in: Member organisations
     label_out: Memberships in lobby groups
     obj: relation
     attributes: []
 
   - name: reg_turnover
-    label: Turnover for Lobbying
+    label: Paid Lobbying
     label_in: Paid representation
     label_out: Hired lobbyists
     obj: relation

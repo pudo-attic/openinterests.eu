@@ -6,6 +6,7 @@
   - name: base
     label: Common
     obj: entity
+    hidden: yes
     attributes:
       - name: name
         label: Name
@@ -48,6 +49,7 @@
   - name: web
     label: Web
     obj: entity
+    hidden: yes
     attributes:
       - name: url
         label: Website
@@ -57,6 +59,7 @@
   - name: address
     label: Address
     obj: entity
+    hidden: yes
     attributes:
       - name: attention
         label: Attention of
@@ -88,6 +91,7 @@
   - name: geolocated
     label: Geo-located
     obj: entity
+    hidden: yes
     attributes:
       - name: lon
         label: Longitude
