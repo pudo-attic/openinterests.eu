@@ -14,6 +14,23 @@
         {% endfor %}
     </p>
 
+    <!--h3>Details about {{entity['name'].value}}</h3-->
+    <table class="table table-condensed">
+        {% for prop in entity.active_properties if not entity.get_attribute(prop.name).hidden %}
+            <tr>
+                <th width="40%" class="attributes">{{entity.get_attribute(prop.name).label}}</th>
+                <td>{{prop.value | safe}}</td>
+                <td class="source">
+                    {% if prop.source_url %}
+                        <a href="{{prop.source_url}}">Source</a>
+                    {% else %}
+                        <a class="broken-source">Unsourced</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
     {% for schema, spager in inbound_sections %}
         <a name="{{spager.name}}"></a>
         <h3>{{schema.label_in}}</h3>
@@ -39,23 +56,6 @@
         </ul>
         {{ pagination.render(spager) }}
     {% endfor %}
-
-    <h3>Details about {{entity['name'].value}}</h3>
-    <table class="table table-condensed">
-        {% for prop in entity.active_properties if not entity.get_attribute(prop.name).hidden %}
-            <tr>
-                <th width="40%" class="attributes">{{entity.get_attribute(prop.name).label}}</th>
-                <td>{{prop.value | safe}}</td>
-                <td class="source">
-                    {% if prop.source_url %}
-                        <a href="{{prop.source_url}}">Source</a>
-                    {% else %}
-                        <a class="broken-source">Unsourced</a>
-                    {% endif %}
-                </td>
-            </tr>
-        {% endfor %}
-    </table>
 
     <!--pre><code>{{ entity.to_index() | tojson(indent=2) }}</code></pre-->
 {% endblock %}
