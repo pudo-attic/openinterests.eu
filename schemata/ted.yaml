@@ -76,6 +76,7 @@
         label: Contract location
       - name: contract_location_nuts
         label: Contract location (NUTS)
+        hidden: yes
       - name: lot_number
         label: "Lot #"
       - name: offers_received_meaning
@@ -100,14 +101,17 @@
         label: Award criteria
       - name: award_criteria_code
         label: Award criteria (code)
+        hidden: yes
       - name: bid_type
         label: Bid type
       - name: bid_type_code
         label: Bid type (code)
+        hidden: yes
       - name: contract_nature
         label: Contract nature
       - name: contract_nature_code
         label: Contract nature (code)
+        hidden: yes
       - name: directive
         label: Based on directive
       - name: dispatch_date
@@ -116,10 +120,12 @@
         label: eTendering URL
       - name: iso_country
         label: ISO Country Code
+        hidden: yes
       - name: main_activities
         label: Main activities
       - name: main_activities_code
         label: Main activities (code)
+        hidden: yes
       - name: oj_collection
         label: Official Journal (EU) collection
       - name: oj_date
@@ -128,22 +134,27 @@
         label: Official Journal (EU) number
       - name: orig_language
         label: Original language
+        hidden: yes
       - name: orig_nuts
         label: Original location (NUTS region)
       - name: orig_nuts_code
         label: Original location (NUTS code)
+        hidden: yes
       - name: procedure
         label: Procedure
       - name: procedure_code
         label: Procedure (code)
+        hidden: yes
       - name: regulation
         label: Regulation
       - name: regulation_code
         label: Regulation (code)
+        hidden: yes
       - name: submission_date
         label: Submission date
       - name: technical_form_lang
         label: Language of the contract award form
+        hidden: yes
       - name: title_country
         label: Country mentioned in document title
       - name: title_text
