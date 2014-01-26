@@ -16,12 +16,15 @@
         label: Amount (total)
       - name: article
         label: Article (EU budget)
+        hidden: yes
       - name: item
         label: Item (EU budget)
       - name: title
         label: Title (EU budget)
+        hidden: yes
       - name: chapter
         label: Chapter (EU budget)
+        hidden: yes
       - name: budget_code
         label: EU budget code
       - name: budget_item
@@ -30,6 +33,7 @@
         label: Co-financing rate (text)
       - name: cofinancing_rate_pct
         label: Co-financing rate (numeric)
+        hidden: yes
       - name: date
         label: Year
       - name: grant_subject
