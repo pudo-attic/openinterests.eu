@@ -78,6 +78,7 @@
         label: Phone number
       - name: fax
         label: Fax number
+        hidden: yes
 
 
 # An entity which has been geo-located. Since we have a strong focus on the EU here, 
@@ -90,16 +91,21 @@
     attributes:
       - name: lon
         label: Longitude
+        hidden: yes
       - name: lat
         label: Latitude
+        hidden: yes
       - name: nuts1
         label: NUTS1 Code
+        hidden: yes
       - name: nuts1_label
         label: NUTS1 Name
       - name: nuts2
         label: NUTS2 Code
+        hidden: yes
       - name: nuts2_label
         label: NUTS2 Name
       - name: nuts3
         label: NUTS3 Code
+        hidden: yes
 
