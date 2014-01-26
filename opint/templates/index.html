@@ -5,11 +5,13 @@
 {% endblock %}
 
 {% block content %}
-
+    <img src="http://opendatalabs.org/eu/home.png" class="img-responsive img-homepage">
+    
     <p class="claim">
         See which companies, people and organisations have financial or political
         interests in the European institutions.
     </p>
+    
     <hr>
 
     <form action="{{url_for('entities.search')}}" method="GET" class="form-horizontal" role="form">
