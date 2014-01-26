@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, request, Markup
+from flask import redirect, url_for
 from werkzeug.exceptions import NotFound
 
 from grano.service import search_entities
@@ -29,6 +30,8 @@ def view(id):
     entity = Entity.by_id(id)
     if entity is None:
         raise NotFound()
+    if entity.same_as is not None:
+        return redirect(url_for('entities.view', id=entity.same_as))
     inbound_sections = []
     for schema in entity.inbound_schemata:
         pager_name = schema.name + '_in'
