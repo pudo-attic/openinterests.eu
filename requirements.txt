@@ -21,3 +21,4 @@ pyshp==1.2.0
 python-slugify==0.0.7
 requests==2.2.0
 unicodecsv==0.9.4
+babel==1.3
