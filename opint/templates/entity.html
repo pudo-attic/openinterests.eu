@@ -8,10 +8,9 @@
 {% block content %}
     <h2>{{ entity['name'].value }}</h2>
     <p class="schemata">
-        {% for schema in entity.schemata %}
-            {% if schema.name != 'base' %}
-                {{schema.label}} &middot;
-            {% endif %}
+        {% for schema in entity.schemata if schema.name != 'base' %}
+            {{schema.label}}
+            {% if not loop.last %} &middot; {% endif %}
         {% endfor %}
     </p>
 
@@ -43,20 +42,18 @@
 
     <h3>Details about {{entity['name'].value}}</h3>
     <table class="table table-condensed">
-        {% for prop in entity.active_properties %}
-            {% if not entity.get_attribute(prop.name).hidden %}
-                <tr>
-                    <th width="40%" class="attributes">{{entity.get_attribute(prop.name).label}}</th>
-                    <td>{{prop.value | safe}}</td>
-                    <td class="source">
-                        {% if prop.source_url %}
-                            <a href="{{prop.source_url}}">Source</a>
-                        {% else %}
-                            <a class="broken-source">Unsourced</a>
-                        {% endif %}
-                    </td>
-                </tr>
-            {% endif %}
+        {% for prop in entity.active_properties if not entity.get_attribute(prop.name).hidden %}
+            <tr>
+                <th width="40%" class="attributes">{{entity.get_attribute(prop.name).label}}</th>
+                <td>{{prop.value | safe}}</td>
+                <td class="source">
+                    {% if prop.source_url %}
+                        <a href="{{prop.source_url}}">Source</a>
+                    {% else %}
+                        <a class="broken-source">Unsourced</a>
+                    {% endif %}
+                </td>
+            </tr>
         {% endfor %}
     </table>
 
