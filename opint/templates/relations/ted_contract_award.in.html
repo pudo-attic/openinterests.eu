@@ -1,6 +1,14 @@
 <a href="{{url_for('relations.view', id=relation.id)}}"><i class="fa fa-paperclip spacer"></i></a>
 
-Awarded contract <a href="{{url_for('relations.view', id=relation.id)}}">{{relation['document_no'].value}}</a> for 
+Awarded contract <a href="{{url_for('relations.view', id=relation.id)}}">{{relation['document_no'].value}}</a>
+{% if relation['contract_value_cost_eur'] %}
+    with a contract value of {{ relation['contract_value_cost_eur'].value | format_eur }}
+{% elif relation['initial_value_cost_eur'] %}
+    with an initial value of {{ relation['initial_value_cost_eur'].value | format_eur }}
+{% elif relation['total_value_cost_eur'] %}
+    with a total value of {{ relation['total_value_cost_eur'].value | format_eur }}
+{% endif %}
+for 
 <strong>{{relation['title_text'].value}}</strong>
 {% if relation['contract_title'].value %} 
     ({{relation['contract_title'].value}})

@@ -1,6 +1,6 @@
 <a href="{{url_for('relations.view', id=relation.id)}}"><i class="fa fa-money spacer"></i></a>
                     
-Committed {{relation['amount'].value}} EUR to <a href="{{url_for('entities.view', id=relation.target.id)}}">{{relation.target['name'].value}}</a>
+Committed {{relation['amount'].value | format_eur }} to <a href="{{url_for('entities.view', id=relation.target.id)}}">{{relation.target['name'].value}}</a>
 {% if relation['grant_subject'].value %}
     for: {{relation['grant_subject'].value}} 
 {% endif %}
