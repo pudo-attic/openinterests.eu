@@ -45,7 +45,8 @@ def load(loader, c):
 		log.warning("No operator named, skipping!")
 		return
 
-	#print c['document_authority_type']
+	if 'European Institution' not in c['document_authority_type']:
+		return
 	authority = load_entity(loader, c, 'contract_authority',
 		schemata=['public_body'], source_url=source_url)
 	authority.set('public_body_type', c.pop('document_authority_type'))
