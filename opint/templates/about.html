@@ -6,17 +6,38 @@
 
 {% block content %}
     <p>
-        Bla bla todo
+        OpenInterests.eu is a catalogue of political and commercial actors related to the 
+        European Union. The project combines different sets of information into a search
+        engine, which can be used to quickly retrieve information about the activities of
+        companies, people and institutions in a European context.
     </p>
-
-    <h3>Thanks to...</h3>
+    <h3>Data sources</h3>
+    <p>
+        Currently, the following data sources are included in the catalogue:
+    </p>
     <ul>
-        <li>CEO, esp. Erik Wesselius</li>
-        <li>LobbyControl</li>
-        <li>FoEEE</li>
-        <li>OKFN</li>
-        <li>Knight-Mozilla OpenNews</li>
+        <li>EP/EC <a href="http://ec.europa.eu/transparencyregister/info/homePage.do">Transparency
+            Register</a> (i.e. the European Lobby Register).</li>
+        <li>EP/EC <a href="http://ec.europa.eu/transparency/regexpert/index.cfm">Register of Expert Groups</a> membership.</li>
+        <li>EC <a href="http://ec.europa.eu/budget/fts/index_en.htm">Financial Transparency System</a>, i.e. direct expenditure committments
+            by the Commission, including research funding.</li>
+        <li><a href="http://ted.europa.eu/TED/main/HomePage.do">Tenders Electronic Daily (TED)</a> contract award notices from procurement 
+            across Europe.</li>
     </ul>
+    <p>
+        We'd be delighted to see others re-use the data gathered for OpenInterests. If you're 
+        interested in retrieving any of these datasets, visit the <a href="/data">data section</a>.
+    </p>
+    <h3>Credits</h3>
+    <p>
+        OpenInterests.eu combines work from a number of sources, and thus credit is due to
+        the many groups and people who have helped make it: the LobbyFacts project team - 
+        <a href="http://corporateeurope.org/">Corporate Europe Observatory</a> (CEO), 
+        <a href="http://foeeeurope.org">Friends of the Earth Europe</a> (FoEE) and 
+        <a href="https://www.lobbycontrol.de/">LobbyControl</a>,
+        <a href="http://okfnlabs.org">OKFN Labs</a> and
+        <a href="http://opennews.org">Knight-Mozilla OpenNews</a>.
+    </p>
 {% endblock %}
 
 {% block js %}{% endblock %}
