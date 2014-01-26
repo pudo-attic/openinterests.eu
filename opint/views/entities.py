@@ -4,7 +4,8 @@ from werkzeug.exceptions import NotFound
 
 from grano.service import search_entities
 from grano.lib.pager import Pager
-from grano.model import Entity, Relation, Schema
+from grano.model import Entity, Relation
+from opint.views.util import facet_schema_list
 
 
 entities = Blueprint('entities', __name__, static_folder='../static', template_folder='../templates')
@@ -18,22 +19,13 @@ def render_relation(schema, direction, entity, relation):
         relation=relation))
 
 
-def facet_schema_list(obj, facets):
-    results = []
-    for facet in facets:
-        schema = Schema.cached(obj, facet.get('term'))
-        if not schema.hidden:
-            results.append((schema, facet.get('count')))
-    return results
-
-
 @entities.route('/entities')
 def search():
     searcher = search_entities(request.args)
     searcher.add_facet('schemata.name', 20)
     searcher.add_facet('relations.schema.name', 20)
     pager = Pager(searcher, 'search')
-    list(pager)
+    #list(pager)
     schemata_facet = facet_schema_list(Entity, searcher.get_facet('schemata.name'))
     relschema_facet = facet_schema_list(Relation, searcher.get_facet('relations.schema.name'))
     return render_template('search.html', searcher=searcher,
