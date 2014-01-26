@@ -1,4 +1,5 @@
 {% import "_pager.html" as pagination %}
+{% import "_facets.html" as facets %}
 {% extends "layout.html" %}
 
 {% block title %}
@@ -21,19 +22,30 @@
         </div>
     </form>
 
-    <ul class="search-results">
-        {% for hit in pager %}
-            <li>
-                <a href="{{url_for('entities.view', id=hit.get('_id'))}}">{{hit.get('_source').get('name')}}</a>
-                <span class="schemata">
-                    {% for schema in hit.get('_source').get('schemata') %}
-                        &middot; {{schema.get('label')}} 
-                    {% endfor %}
-                </span>
-            </li>
-        {% endfor %}
-    </ul>
-    {{ pagination.render(pager) }}
+    <div class="row">
+        <div class="col-md-9">
+            <ul class="search-results">
+                {% for hit in pager %}
+                    <li>
+                        <a href="{{url_for('entities.view', id=hit.get('_id'))}}">{{hit.get('_source').get('name')}}</a>
+                        <span class="schemata">
+                            {% for schema in hit.get('_source').get('schemata') %}
+                                &middot; {{schema.get('label')}} 
+                            {% endfor %}
+                        </span>
+                    </li>
+                {% endfor %}
+            </ul>
+            {{ pagination.render(pager) }}
+        </div>
+        <div class="col-md-3">
+            <h4>Actor types</h4>
+            {{ facets.render(schemata_facet) }}
+            <br/>
+            <h4>Known activities</h4>
+            {{ facets.render(relschema_facet) }}
+        </div>
+    </div>
 {% endblock %}
 
 {% block js %}{% endblock %}

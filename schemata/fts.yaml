@@ -2,7 +2,7 @@
 # FTS - EC Financial Transparency System 
 
   - name: fts_committment
-    label: "EC Financial Transparency System: Committment"
+    label: EC committment
     label_in: Committments received from the EC
     label_out: Financial committments
     obj: relation

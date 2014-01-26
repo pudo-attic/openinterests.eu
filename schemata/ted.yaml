@@ -4,7 +4,7 @@
 # decided in favour of a specific company (or a set of companies).
 
   - name: ted_contract_award
-    label: Tenders Electronic Daily - contract award notice
+    label: Contract award notice
     label_in: Public contracts received
     label_out: Contracts awarded to companies
     obj: relation

@@ -8,7 +8,7 @@
 {% block content %}
     <h2>{{ entity['name'].value }}</h2>
     <p class="schemata">
-        {% for schema in entity.schemata if schema.name != 'base' %}
+        {% for schema in entity.schemata if not schema.hidden %}
             {{schema.label}}
             {% if not loop.last %} &middot; {% endif %}
         {% endfor %}
