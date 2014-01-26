@@ -20,11 +20,21 @@
             </div>
         </div>
     </form>
+
+    <ul class="teasers">
+        {% for schema, count in schemata_facet %}
+            <li><a href="/entities?filter-schemata.name={{schema.name}}">{{count}} {{schema.label}}s</a>
+            {% if not loop.last %}
+                &middot;
+            {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
     
     <p>
         OpenInterests catalogues actors involved in lobbying, expert groups, public
         expenditure and procurement so you can explore the interactions between 
-        them.
+        them. <a href="/about">Read more...</a>
     </p>
 {% endblock %}
 

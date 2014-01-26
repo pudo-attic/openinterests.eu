@@ -1,11 +1,21 @@
 from flask import Blueprint, render_template
 
+from grano.model import Entity
+from grano.service import search_entities
+from opint.views.util import facet_schema_list
+
+
 base = Blueprint('base', __name__, static_folder='../static', template_folder='../templates')
 
 
 @base.route('/')
 def index():
-    return render_template('index.html')
+    searcher = search_entities({})
+    searcher.add_facet('schemata.name', 20)
+
+    schemata_facet = facet_schema_list(Entity, searcher.get_facet('schemata.name'))
+    
+    return render_template('index.html', schemata_facet=schemata_facet)
 
 
 @base.route('/about')
