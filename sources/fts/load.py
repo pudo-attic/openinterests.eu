@@ -18,7 +18,7 @@ def load(loader, row):
 
 	bfry = loader.make_entity(['organisation', 'address', 'geolocated'])
 	bfry.set('name', row.pop('beneficiary'))
-	bfry.set('acronym', row.pop('alias'))
+	bfry.set('abbreviation', row.pop('alias'))
 
 	osm_url = 'http://open.mapquestapi.com/nominatim'
 	bfry.set('lon', row.pop('lon'), source_url=osm_url)
