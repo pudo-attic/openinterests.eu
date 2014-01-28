@@ -39,6 +39,10 @@
             {{ pagination.render(pager) }}
         </div>
         <div class="col-md-3">
+            <p>
+                {{searcher.count()}} actors found.
+            </p>
+
             <h4>Actor types</h4>
             {{ facets.render(schemata_facet, 'schemata.name', pager) }}
             <br/>
