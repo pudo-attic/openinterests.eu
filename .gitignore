@@ -42,3 +42,4 @@ grano/*
 source_data/*
 
 opint/static/vendor/*
+settings.py
