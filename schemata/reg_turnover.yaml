@@ -1,0 +1,10 @@
+name: reg_turnover
+label: Paid Lobbying
+label_in: Paid representation
+label_out: Hired lobbyists
+obj: relation
+attributes:
+  - name: turnover_min
+    label: Minimal amount
+  - name: turnover_max
+    label: Maximal amount

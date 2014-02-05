@@ -1,0 +1,8 @@
+name: organisation
+label: Organisation
+obj: entity
+attributes:
+  - name: abbreviation
+    label: Abbreviation
+  - name: number_of_members
+    label: Number of members

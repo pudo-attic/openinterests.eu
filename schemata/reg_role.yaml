@@ -1,0 +1,14 @@
+name: reg_role
+label: Lobbyist
+label_in: Personnel
+label_out: Involvement in lobby representatives
+obj: relation
+attributes: 
+  - name: role
+    label: Role
+  - name: position
+    label: Position
+  - name: role_start_date
+    label: Start date
+  - name: role_end_date
+    label: End date

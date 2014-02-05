@@ -1,0 +1,8 @@
+name: expert_group_associated
+label: Association to expert groups
+label_in: Associated Directorates-General
+label_out: Expert group associations
+obj: relation
+attributes:
+  - name: role
+    label: Role of the DG

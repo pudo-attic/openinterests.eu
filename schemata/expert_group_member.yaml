@@ -1,0 +1,10 @@
+name: expert_group_member
+label: Expert group member
+label_in: Expert group members
+label_out: Expert group membership
+obj: relation
+attributes:
+  - name: member_status
+    label: Member status
+  - name: member_type
+    label: Member type

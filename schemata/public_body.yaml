@@ -1,0 +1,6 @@
+name: public_body
+label: Public body
+obj: entity
+attributes:
+  - name: public_body_type
+    label: Type of public body

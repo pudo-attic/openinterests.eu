@@ -6,12 +6,22 @@ env:
 
 schema:
 	python opint/manage.py createdb
-	python opint/manage.py schema_import schemata/base.yaml
-	python opint/manage.py schema_import schemata/ted.yaml
-	python opint/manage.py schema_import schemata/fts.yaml
-	python opint/manage.py schema_import schemata/experts.yaml
-	python opint/manage.py schema_import schemata/interests.yaml
-
+	python opint/manage.py schema_import schemata/address.yaml
+	python opint/manage.py schema_import schemata/expert_group.yaml
+	python opint/manage.py schema_import schemata/expert_group_associated.yaml
+	python opint/manage.py schema_import schemata/expert_group_member.yaml
+	python opint/manage.py schema_import schemata/fts_committment.yaml
+	python opint/manage.py schema_import schemata/geolocated.yaml
+	python opint/manage.py schema_import schemata/organisation.yaml
+	python opint/manage.py schema_import schemata/person.yaml
+	python opint/manage.py schema_import schemata/public_body.yaml
+	python opint/manage.py schema_import schemata/reg_membership.yaml
+	python opint/manage.py schema_import schemata/reg_role.yaml
+	python opint/manage.py schema_import schemata/reg_turnover.yaml
+	python opint/manage.py schema_import schemata/representative.yaml
+	python opint/manage.py schema_import schemata/ted_contract_award.yaml
+	python opint/manage.py schema_import schemata/web.yaml
+	
 
 ####################################################
 # EC Financial Transparency System

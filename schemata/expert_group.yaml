@@ -1,0 +1,14 @@
+name: expert_group
+label: Expert group
+obj: entity
+attributes:
+  - name: exp_identifier
+    label: Identifier of the expert group
+  - name: exp_scope
+    label: Scope of the expert group
+  - name: exp_active_since
+    label: Founding date of the expert group
+  - name: exp_status
+    label: Status of the expert group
+  - name: exp_mission
+    label: Mission statement

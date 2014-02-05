@@ -1,0 +1,22 @@
+name: representative
+label: Representative
+obj: entity
+attributes:
+  - name: reg_identifier
+    label: Identifier in the register 
+  - name: reg_legal_status
+    label: Legal status
+  - name: reg_entry_status
+    label: Status of registration
+  - name: reg_activities
+    label: Lobbying activities
+  - name: reg_goals
+    label: Goals
+  - name: reg_networking
+    label: Networking activities
+  - name: registration_date 
+    label: Registration date
+  - name: main_category 
+    label: Main category
+  - name: sub_category 
+    label: Subcategory

@@ -1,0 +1,9 @@
+name: web
+label: Web
+obj: entity
+hidden: yes
+attributes:
+  - name: url
+    label: Website
+  - name: email
+    label: E-Mail

@@ -1,0 +1,6 @@
+name: reg_membership
+label: Lobby Member
+label_in: Member organisations
+label_out: Memberships in lobby groups
+obj: relation
+attributes: []

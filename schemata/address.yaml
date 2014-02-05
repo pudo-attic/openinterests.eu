@@ -1,0 +1,26 @@
+name: address
+label: Address
+obj: entity
+hidden: yes
+attributes:
+  - name: attention
+    label: Attention of
+  - name: address
+    label: Address
+  - name: address_ctd
+    label: Address (ctd.)
+  - name: city
+    label: City
+  - name: postcode
+    label: Postal code
+  - name: country
+    label: Country
+  - name: country_code
+    label: "Country Code (ISO 3166-2)"
+  - name: address_more
+    label: Address (further details)
+  - name: phone
+    label: Phone number
+  - name: fax
+    label: Fax number
+    hidden: yes

@@ -1,0 +1,10 @@
+name: person
+label: Individual
+obj: entity
+attributes:
+  - name: first_name
+    label: First name
+  - name: last_name
+    label: Last name
+  - name: title
+    label: Title
