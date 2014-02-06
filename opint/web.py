@@ -16,10 +16,11 @@ def format_eur(num):
         return ''
     try:
         num = decimal.Decimal(num)
-        return babel.numbers.format_currency(num, "EUR", locale="en_US")
+        num = babel.numbers.format_currency(num, "EUR", locale="en_US")
+        return num.replace('.00', '')
     except Exception, e:
         raise
-        return '-.-'
+        return '-'
 
 
 app.register_blueprint(entities)
