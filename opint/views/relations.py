@@ -1,7 +1,6 @@
 from flask import Blueprint, render_template, request
 from werkzeug.exceptions import NotFound
 
-from grano.service import search_entities
 from grano.lib.pager import Pager
 from grano.model import Relation
 

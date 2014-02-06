@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request, Markup
 from flask import redirect, url_for
 from werkzeug.exceptions import NotFound
 
-from grano.service import search_entities
+from grano.logic.searcher import search_entities
 from grano.lib.pager import Pager
 from grano.model import Entity, Relation
 from opint.views.util import facet_schema_list
