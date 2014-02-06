@@ -1,7 +1,7 @@
 .PHONY: env
 
 env:
-	. .env
+	
 
 
 schema:
