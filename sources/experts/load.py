@@ -65,9 +65,14 @@ def load(loader, row):
             schemata.append('organisation')
         else:
             schemata.append('person')
+
+        if m.get('country_common'):
+            schemata.append('address')
             
         mem = loader.make_entity(schemata, source_url=source_url)
         mem.set('name', m.pop('name'))
+        mem.set('country', m.get('country_common'))
+        mem.set('country_code', m.get('country_code'))
         mem.save()
 
         rel = loader.make_relation('expert_group_member', mem, grp,

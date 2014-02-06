@@ -32,7 +32,8 @@ def load(loader, row):
 
 	bfry.set('address', row.pop('address'))
 	bfry.set('city', row.pop('city'))
-	bfry.set('country', row.pop('country'))
+	bfry.set('country', row.pop('country_common'))
+	bfry.set('country_code', row.pop('country_code'))
 	bfry.set('postcode', row.pop('postcode'))
 	bfry.save()
 

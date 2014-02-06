@@ -2,6 +2,7 @@ import logging
 from sources.util.db import engine
 from sources.util.cache import fetch_data, walk_path
 from sources.util.geocode import geocode
+from sources.util.countries import country_by_name
 
 logging.basicConfig(level=logging.DEBUG)
 
