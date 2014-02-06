@@ -17,7 +17,12 @@
             {{schema.label}}
             {% if not loop.last %} &middot; {% endif %}
         {% endfor %}
+
+        {% if entity['opencorporates_uri'] %}
+            &middot; See also: <a href="{{entity['opencorporates_uri'].value }}">{{ entity['name'].value }} on OpenCorporates.com</a>.
+        {% endif %}
     </p>
+
 
     <!--h3>Details about {{entity['name'].value}}</h3-->
     <table class="table table-condensed">
