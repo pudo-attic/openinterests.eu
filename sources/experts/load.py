@@ -25,7 +25,7 @@ def load(loader, row):
         source_url=source_url)
     grp.set('name', row.pop('name'))
     grp.set('abbreviation', row.pop('abbreviation'))
-    grp.set('exp_id', grp_id)
+    grp.set('exp_identifier', grp_id)
     grp.set('exp_scope', row.pop('scope'))
     grp.set('exp_mission', row.pop('mission'))
     grp.set('exp_status', row.pop('status'))
