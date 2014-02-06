@@ -22,6 +22,13 @@ schema:
 	python opint/manage.py schema_import schemata/ted_contract_award.yaml
 	python opint/manage.py schema_import schemata/web.yaml
 	
+index:
+	python opint/manage.py index
+
+reindex:
+	python opint/manage.py flush_index
+	python opint/manage.py index
+
 
 ####################################################
 # EC Financial Transparency System
@@ -35,10 +42,13 @@ fts-parse: env
 fts-geocode: env
 	python sources/fts/geocode.py
 
+fts-countries: env
+	python sources/fts/countries.py
+
 fts-load: env
 	python sources/fts/load.py
 
-fts: fts-download fts-parse fts-geocode fts-load
+fts: fts-download fts-parse fts-countries fts-geocode fts-load
 
 
 ####################################################
@@ -50,10 +60,13 @@ experts-download: env
 experts-parse: env
 	python sources/experts/parse.py
 
+experts-countries: env
+	python sources/experts/countries.py
+
 experts-load: env
 	python sources/experts/load.py
 
-experts: experts-download experts-parse experts-load
+experts: experts-download experts-parse experts-countries experts-load
 
 
 ####################################################
@@ -71,10 +84,13 @@ ted-iso-list: env
 ted-isos: ted-iso-list
 	sh scripts/update-ted.sh
 
+ted-countries:
+	python sources/ted/countries.py
+
 ted-load: env
 	python sources/ted/load.py
 
-ted: ted-download ted-parse ted-load
+ted: ted-download ted-parse ted-countries ted-load
 
 
 ####################################################
@@ -92,8 +108,11 @@ interests-categories: env
 interests-geocode: env
 	python sources/interests/geocode.py
 
+interests-countries: env
+	python sources/interests/countries.py
+
 interests-load: env
 	python sources/interests/load.py
 
-interests: interests-parse accredditations-parse interests-categories interests-geocode interests-load
+interests: interests-parse accredditations-parse interests-categories interests-countries interests-geocode interests-load
 
