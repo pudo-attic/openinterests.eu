@@ -3,7 +3,7 @@
         <div class="pager-box">
             <ul class="pagination">
                 {% if pager.has_prev %}
-                    <li><a href="{{pager.prev_url}}">&laquo;</a></li>
+                    <li><a href="{{pager.prev_url}}" rel="prev">&laquo;</a></li>
                 {% endif %}
 
                 {% for page in pager.range %}
@@ -16,7 +16,7 @@
                 {% endfor %}
 
                 {% if pager.has_next %}
-                    <li><a href="{{pager.next_url}}">&raquo;</a></li>
+                    <li><a href="{{pager.next_url}}" rel="next">&raquo;</a></li>
                 {% endif %}
             </ul>
         </div>
