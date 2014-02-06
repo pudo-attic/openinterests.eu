@@ -7,6 +7,7 @@ env:
 schema:
 	python opint/manage.py createdb
 	python opint/manage.py schema_import schemata/address.yaml
+	python opint/manage.py schema_import schemata/eu_body.yaml
 	python opint/manage.py schema_import schemata/expert_group.yaml
 	python opint/manage.py schema_import schemata/expert_group_associated.yaml
 	python opint/manage.py schema_import schemata/expert_group_member.yaml
@@ -28,6 +29,13 @@ index:
 reindex:
 	python opint/manage.py flush_index
 	python opint/manage.py index
+
+
+####################################################
+# AskTheEU Loader 
+
+asktheeu: env
+	python sources/asktheeu/load.py
 
 
 ####################################################

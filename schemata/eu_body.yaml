@@ -1,0 +1,10 @@
+name: eu_body
+label: EU Institution
+obj: entity
+attributes:
+  - name: asktheeu_slug
+    label: Slug for AskTheEU.org
+    hidden: yes
+  - name: asktheeu_notes
+    label: Notes
+
