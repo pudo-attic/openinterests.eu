@@ -2,7 +2,12 @@
 {% extends "layout.html" %}
 
 {% block title %}
-  {{ entity['name'].value }}
+  {{ entity['name'].value | striptags | safe }}
+{% endblock %}
+
+{% block description %}
+  {{ (entity['reg_activities'].value or entity['reg_goals'].value or entity['exp_mission'].value or "Political and financial associations of " + entity['name'].value + " as part of OpenInterests, a catalogue of interests regarding the institutions of the European Union.")
+    | striptags | truncate(length=155) | trim | safe }}
 {% endblock %}
 
 {% block content %}

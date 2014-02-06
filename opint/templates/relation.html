@@ -1,7 +1,16 @@
 {% extends "layout.html" %}
 
 {% block title %}
-  Relation: {{relation.schema.label}}
+    {% if relation.get_attribute('title_text') %}
+        {{relation['title_text'].value}}; {{relation.schema.label}} ({{relation.target['name'].value}})
+    {% else %}
+        {{relation.schema.label}}: {{relation.source['name'].value}} - {{relation.target['name'].value}}
+    {% endif %}
+{% endblock %}
+
+{% block description %}
+  {{ (relation['grant_subject'].value or relation['contract_description'].value or "An " + relation.schema.label + " between " + relation.source['name'].value + " and " + relation.target['name'].value + " as part of OpenInterests, a catalogue of interests regarding the institutions of the European Union.")
+    | striptags | truncate(length=155) | trim | safe }}
 {% endblock %}
 
 {% block content %}
