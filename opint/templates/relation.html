@@ -16,6 +16,10 @@
 {% block content %}
     <h2>{{relation.schema.label}}</h2>
 
+    {% if relation.source.has_schema('eu_body') or relation.source.has_schema('eu_body') %}
+        <p>Request detailed information via <a href="{{ relation | relation_wob_link }}">AskTheEU.org</a>.</p>
+    {% endif %}
+
     <table class="table table-condensed">
         <tr>
             <th width="40%" class="attributes">Origin</th>

@@ -23,7 +23,7 @@ attributes:
   - name: additional_information
     label: Additional information
   - name: appeal_procedure
-    label: Appeak procedure
+    label: Appeal procedure
   - name: concessionaire_contact
     label: Concessionaire (Contact)
   - name: concessionaire_email

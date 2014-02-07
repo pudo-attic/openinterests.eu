@@ -21,6 +21,10 @@
         {% if entity['opencorporates_uri'] %}
             &middot; See also: <a href="{{entity['opencorporates_uri'].value }}">{{ entity['name'].value }} on OpenCorporates.com</a>.
         {% endif %}
+
+        {% if entity.has_schema('eu_body') %}
+            &middot; Request information via <a href="{{ entity | entity_wob_link}}">AskTheEU.org</a>.
+        {% endif %}
     </p>
 
 

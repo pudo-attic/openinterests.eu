@@ -8,6 +8,7 @@ from grano.core import app
 from opint.views.entities import entities
 from opint.views.relations import relations
 from opint.views.base import base
+from opint.asktheeu import relation_wob_link
 
 
 @app.template_filter('format_eur')
@@ -21,6 +22,7 @@ def format_eur(num):
     except Exception, e:
         raise
         return '-'
+
 
 
 app.register_blueprint(entities)
