@@ -117,6 +117,11 @@ def parse(filename, file_content):
     
     # save to DB
     doc_no = data['doc_no']
+    
+    if documents_table.find_one(doc_no=doc_no):
+        log.info('Skipping: %s', doc_no)
+        return
+
     #engine.begin()
     log.info('Parsed: %s, %s (%s)', doc_no, form_.tag, len(contracts))
     cpvs_table.delete(doc_no=doc_no)
