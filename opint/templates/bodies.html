@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  EU Institutions
+{% endblock %}
+
+{% block description %}
+  See who the institutions of the European Union make contracts with, 
+  through lobbying activity, expert groups, research funding and public procurement. 
+{% endblock %}
+
+{% block content %}
+    <h2>EU Institutions</h2>
+    
+    <p>
+        The European Union's institutions are listed below. Each of them has conducted
+        work in expert groups, given out grants for scientific research and handed out
+        public contracts through procurement. Browse any of these entities to learn
+        more about those transactions.
+    </p>
+
+    {% for body in eu_bodies %}
+        {% if loop.index % 3 == 1 %}
+            <div class="row">
+        {% endif %}
+        {% if body.get('_source').get('num_relations') != 0 %}
+            <div class="col-md-4">
+                <h4>
+                    <a href="{{url_for('entities.view', id=body.get('_id'))}}">
+                        {{body.get('_source').get('name')}}
+                    </a>
+                    {{body.get('_source').get('num_relations')}}
+                </h4>                
+            </div>
+        {% endif %}
+        {% if loop.index % 3 == 0 or loop.last %}
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
+
+{% block js %}{% endblock %}
+

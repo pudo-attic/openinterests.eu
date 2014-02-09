@@ -1,3 +1,4 @@
+{% import "_sources.html" as sources %}
 {% import "_pager.html" as pagination %}
 {% extends "layout.html" %}
 
@@ -28,48 +29,104 @@
     </p>
 
 
-    <!--h3>Details about {{entity['name'].value}}</h3-->
-    <table class="table table-condensed">
-        {% for prop in entity.active_properties if not entity.get_attribute(prop.name).hidden %}
-            <tr>
-                <th width="40%" class="attributes">{{entity.get_attribute(prop.name).label}}</th>
-                <td>{{prop.value | safe}}</td>
-                <td class="source">
-                    {% if prop.source_url %}
-                        <a href="{{prop.source_url}}" rel="external, archives, nofollow">Source</a>
-                    {% else %}
-                        <a class="broken-source">Unsourced</a>
-                    {% endif %}
-                </td>
-            </tr>
-        {% endfor %}
-    </table>
+    <div class="row">
+        <div class="col-md-5 col-md-push-7">
+            <table class="table table-condensed">
+                {% for prop in entity.active_properties if not entity.get_attribute(prop.name).hidden %}
+                    <tr>
+                        <th width="40%" class="attributes col-md-12">
+                            {{entity.get_attribute(prop.name).label}}
+                            <span class="source">
+                                {{ sources.link(prop) }}
+                            </span>
+                        </th>
+                        <td class="hidden-md hidden-lg">
+                            {{prop.value | safe}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="value hidden-xs hidden-sm">
+                            {{prop.value | safe}}
+                        </td>
+                    </tr>
+                {% endfor %}
+                {% if entity.has_schema('address') %}
+                    <tr>
+                        <th width="40%" class="attributes">
+                            <i class="fa fa-home"></i> Address                            
+                            <span class="source">
+                                {{ sources.link(entity['address']) }}
+                            </span>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td class="value hidden-xs hidden-sm" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                            {% if entity['attention'].value %}
+                                Attn. {{entity['attention'].value}}<br>
+                            {% endif %}
+                            {{entity['name'].value}}<br>
+                            <span itemprop="streetAddress">
+                            {{entity['address'].value}}<br>
+                            {% if entity['address_ctd'].value %}
+                                {{entity['address_ctd'].value}}<br>
+                            {% endif %}
+                            </span>
+                            <span itemprop="postalCode">    
+                                {{entity['postcode'].value}}
+                            </span>
+                            <span itemprop="addressLocality">
+                                {{entity['city'].value}}
+                            </span><br>
 
-    {% for schema, spager in inbound_sections %}
-        <a name="{{spager.name}}"></a>
-        <h3>{{schema.label_in}}</h3>
-        <ul class="entity-relations">
-            {% for rel in spager %}
-                <li>
-                    {{ render_relation(schema, 'in', entity, rel )}}
-                </li>
-            {% endfor %}
-        </ul>
-        {{ pagination.render(spager) }}
-    {% endfor %}
+                            {% if entity['country'].value %}
+                                <span itemprop="addressCountry">    
+                                    {{entity['country'].value}}<br>
+                                </span>
+                            {% endif %}
+                            {% if entity['phone'].value %}
+                                <span itemprop="telephone">
+                                    Telephone: {{entity['phone'].value}}<br>
+                                </span>
+                            {% endif %}
+                            {% if entity['fax'].value %}
+                                <span itemprop="telefax">
+                                    Telefax: {{entity['fax'].value}}<br>
+                                </span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endif %}
+            </table>
+        </div>
 
-    {% for schema, spager in outbound_sections %}
-        <a name="{{spager.name}}"></a>
-        <h3>{{schema.label_out}}</h3>
-        <ul class="entity-relations">
-            {% for rel in spager %}
-                <li>
-                    {{ render_relation(schema, 'out', entity, rel )}}
-                </li>
+        <div class="col-md-7 col-md-pull-5">
+            {% for schema, spager in inbound_sections %}
+                <a name="{{spager.name}}"></a>
+                <h3>{{schema.label_in}}</h3>
+                <ul class="entity-relations">
+                    {% for rel in spager %}
+                        <li>
+                            {{ render_relation(schema, 'in', entity, rel )}}
+                        </li>
+                    {% endfor %}
+                </ul>
+                {{ pagination.render(spager) }}
             {% endfor %}
-        </ul>
-        {{ pagination.render(spager) }}
-    {% endfor %}
+
+            {% for schema, spager in outbound_sections %}
+                <a name="{{spager.name}}"></a>
+                <h3>{{schema.label_out}}</h3>
+                <ul class="entity-relations">
+                    {% for rel in spager %}
+                        <li>
+                            {{ render_relation(schema, 'out', entity, rel )}}
+                        </li>
+                    {% endfor %}
+                </ul>
+                {{ pagination.render(spager) }}
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
 
 {% block js %}{% endblock %}

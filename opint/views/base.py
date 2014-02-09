@@ -12,10 +12,16 @@ base = Blueprint('base', __name__, static_folder='../static', template_folder='.
 def index():
     searcher = search_entities({})
     searcher.add_facet('schemata.name', 20)
-
     schemata_facet = facet_schema_list(Entity, searcher.get_facet('schemata.name'))
-    
     return render_template('index.html', schemata_facet=schemata_facet)
+
+
+@base.route('/bodies')
+def bodies():
+    eu_bodies = search_entities({}, sort_field=('num_relations', 'desc'))
+    eu_bodies.limit(200)
+    eu_bodies.add_filter('schemata.name', 'eu_body')
+    return render_template('bodies.html', eu_bodies=eu_bodies)
 
 
 @base.route('/about')

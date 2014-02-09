@@ -5,22 +5,31 @@ hidden: yes
 attributes:
   - name: attention
     label: Attention of
+    hidden: yes
   - name: address
     label: Address
+    hidden: yes
   - name: address_ctd
     label: Address (ctd.)
+    hidden: yes
   - name: city
     label: City
+    hidden: yes
   - name: postcode
     label: Postal code
+    hidden: yes
   - name: country
     label: Country
+    hidden: yes
   - name: country_code
     label: "Country Code (ISO 3166-2)"
+    hidden: yes
   - name: address_more
     label: Address (further details)
+    hidden: yes
   - name: phone
     label: Phone number
+    hidden: yes
   - name: fax
     label: Fax number
     hidden: yes

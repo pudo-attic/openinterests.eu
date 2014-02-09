@@ -1,0 +1,7 @@
+{% macro link(prop) %}
+    {% if prop.source_url %}
+        <a href="{{prop.source_url}}" rel="external, archives, nofollow">Source</a>
+    {% else %}
+        <a class="broken-source">Unsourced</a>
+    {% endif %}
+{% endmacro %}

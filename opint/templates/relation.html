@@ -1,3 +1,4 @@
+{% import "_sources.html" as sources %}
 {% extends "layout.html" %}
 
 {% block title %}
@@ -33,13 +34,7 @@
             <tr>
                 <th width="40%" class="attributes">{{relation.get_attribute(prop.name).label}}</th>
                 <td>{{prop.value | safe}}</td>
-                <td class="source">
-                    {% if prop.source_url %}
-                        <a href="{{prop.source_url}}" rel="external, archives, nofollow">Source</a>
-                    {% else %}
-                        <a class="broken-source">Unsourced</a>
-                    {% endif %}
-                </td>
+                <td class="source">{{ sources.link(prop) }}</td>
             </tr>
         {% endfor %}
     </table>

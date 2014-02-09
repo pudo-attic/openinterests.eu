@@ -9,7 +9,6 @@ body {
     background-color: @bgColor;
     color: @fgColor;
     font-family: 'Convergence', sans-serif;
-    font-size: 1.5em;
 }
 
 a {
@@ -30,10 +29,10 @@ h1, h2, h3, h4, h5 {
     font-family: 'Antic Slab', sans-serif;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1000px) {
 
     .container {
-        max-width: 730px;
+        max-width: 960px;
     }
 
 }
@@ -169,6 +168,11 @@ input.search-box {
 
 th.attributes {
     color: darken(@fgColor, 20%);
+}
+
+.table tbody td.value {
+    border-top: 0;
+    padding-left: 1em;
 }
 
 .source {
