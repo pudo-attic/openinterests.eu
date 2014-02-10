@@ -20,20 +20,20 @@
     </p>
 
     {% for body in eu_bodies %}
-        {% if loop.index % 3 == 1 %}
+        {% if loop.index % 4 == 1 %}
             <div class="row">
         {% endif %}
         {% if body.get('_source').get('num_relations') != 0 %}
-            <div class="col-md-4">
-                <h4>
+            <div class="col-md-3">
+                <p>
                     <a href="{{url_for('entities.view', id=body.get('_id'))}}">
                         {{body.get('_source').get('name')}}
                     </a>
-                    {{body.get('_source').get('num_relations')}}
-                </h4>                
+                    ({{body.get('_source').get('num_relations')}})
+                </p>
             </div>
         {% endif %}
-        {% if loop.index % 3 == 0 or loop.last %}
+        {% if loop.index % 4 == 0 or loop.last %}
             </div>
         {% endif %}
     {% endfor %}
