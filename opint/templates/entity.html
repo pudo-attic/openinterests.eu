@@ -28,7 +28,7 @@
                             <img class="icon" src="https://opencorporates.com/assets/favicon.ico"> OpenCorporates
                         </a>
                     {% endif %}
-                    {% if entity.has_schema('eu_body') %}
+                    {% if entity['asktheeu_slug'] %}
                         <a class="btn btn-default" href="{{ entity | entity_wob_link}}">
                             <img class="icon" src="http://www.asktheeu.org/asktheeu-theme/images/favicon.ico"> Request information
                         </a>

@@ -21,7 +21,7 @@
         <div class="col-xs-12">
             <div class="btn-toolbar entity-toolbar" role="toolbar">
                 <div class="btn-group pull-right">
-                    {% if relation.source.has_schema('eu_body') or relation.source.has_schema('eu_body') %}
+                    {% if relation.source['asktheeu_slug'] or relation.source['asktheeu_slug'] %}
                         <a class="btn btn-default" href="{{ relation | relation_wob_link }}">
                             <img class="icon" src="http://www.asktheeu.org/asktheeu-theme/images/favicon.ico"> Request detailed information
                         </a>
