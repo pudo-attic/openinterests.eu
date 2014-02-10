@@ -3,12 +3,17 @@
 @fgColor: #eee;
 //@themeColor: #ff8000;
 @themeColor: #00b6ff;
+@borderColor: darken(@fgColor, 50%);
+@bgShaded: lighten(@bgColor, 20%);
+@fgShaded: darken(@fgColor, 20%);
+@themeShaded:  darken(@themeColor, 20%);
 
 
 body {
     background-color: @bgColor;
     color: @fgColor;
     font-family: 'Convergence', sans-serif;
+    padding-top: 70px;
 }
 
 a {
@@ -21,7 +26,7 @@ a.broken-source, a.broken-source:hover {
 }
 
 a:hover {
-    color: darken(@themeColor, 20%);
+    color: @themeShaded;
     text-decoration: none;
 }
 
@@ -38,29 +43,30 @@ h1, h2, h3, h4, h5 {
 }
 
 hr {
-    border-top: 1px solid darken(@fgColor, 50%);
+    border-top: 1px solid @borderColor;
 }
 
 pre {
-    background-color: darken(@bgColor, 10%);
-    border-color:  darken(@bgColor, 20%);
-    color: lighten(@fgColor, 10%);
+    background-color: @bgShaded;
+    border-color: @borderColor;
+    color: @fgShaded;
 }
 
 .table tbody tr th, .table tbody tr td {
-    border-color: darken(@fgColor, 50%);
+    border-color: @borderColor;
 }
 
-header {
-    margin-bottom: 30px;
-    border-bottom: 1px solid darken(@fgColor, 50%);
-    padding-bottom: 10px;
+.navbar {
 
-    h1 {
+    #top-search-bar {
+        width: 30em;
+    }
+
+    .navbar-brand {
         font-weight: 900;
 
         .logo-highlight {
-            color: darken(@themeColor, 20%);
+            color: @themeShaded;
         }
 
         a:hover {
@@ -69,7 +75,7 @@ header {
             color: @themeColor;
 
             .logo-highlight {
-                color: darken(@themeColor, 20%);
+                color: @themeShaded;
             }
         }
     }
@@ -85,7 +91,7 @@ img.img-homepage {
 
 footer {
     margin-top: 30px;
-    border-top: 1px solid darken(@fgColor, 50%);
+    border-top: 1px solid @borderColor;
     padding-top: 10px;
 
     ul {
@@ -112,8 +118,8 @@ ul.teasers {
 }
 
 input.search-box {
-    background-color: lighten(@bgColor, 10%);
-    border: 1px solid lighten(@bgColor, 20%);
+    background-color: @bgShaded;
+    border: 1px solid @borderColor;
     color: @fgColor;
     outline: 0;
     padding: 7px;
@@ -127,11 +133,11 @@ input.search-box {
     li {
         padding-top: 0.3em;
         padding-bottom: 0.2em;
-        border-bottom: 1px solid lighten(@bgColor, 10%);
+        border-bottom: 1px solid @borderColor;
 
         .schemata {
             font-size: 0.8em;
-            color: darken(@fgColor, 20%);
+            color: @fgShaded;
         }
     }
 }
@@ -146,7 +152,7 @@ input.search-box {
 
         .count {
             font-size: 0.9em;
-            color:  darken(@fgColor, 20%);
+            color: @fgShaded;
         }
 
         .active {
@@ -161,13 +167,13 @@ input.search-box {
     .pagination {
         li a {
             background-color: @bgColor;
-            border-color: lighten(@bgColor, 20%);
+            border-color: @borderColor;
         }
     }
 }
 
 th.attributes {
-    color: darken(@fgColor, 20%);
+    color: @fgShaded;
 }
 
 .table tbody td.value {
@@ -200,7 +206,7 @@ ul.entity-relations {
         padding-left: 1.8em;
         margin-top: 0.7em;
         padding-bottom: 0.5em;
-        border-bottom: 1px solid lighten(@bgColor, 10%);
+        border-bottom: 1px solid @borderColor;
 
         strong {
             font-weight: normal;
