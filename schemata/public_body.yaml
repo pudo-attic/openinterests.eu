@@ -4,3 +4,4 @@ obj: entity
 attributes:
   - name: public_body_type
     label: Type of public body
+    hidden: yes

@@ -7,4 +7,5 @@ attributes:
     hidden: yes
   - name: asktheeu_notes
     label: Notes
+    hidden: yes
 

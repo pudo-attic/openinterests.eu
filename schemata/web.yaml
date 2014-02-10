@@ -5,5 +5,7 @@ hidden: yes
 attributes:
   - name: url
     label: Website
+    hidden: yes
   - name: email
     label: E-Mail
+    hidden: yes

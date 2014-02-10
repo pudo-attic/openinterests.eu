@@ -12,3 +12,4 @@ attributes:
     label: Status of the expert group
   - name: exp_mission
     label: Mission statement
+    hidden: yes

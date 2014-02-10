@@ -3,6 +3,8 @@ import decimal
 import locale
 
 from grano.manage import manager
+from urlparse import urlparse
+
 from grano.core import app
 
 from opint.views.entities import entities
@@ -23,6 +25,14 @@ def format_eur(num):
         raise
         return '-'
 
+
+@app.template_filter('domain_name')
+def domain_name(url):
+    url = urlparse(url)
+    dom = url.hostname.lower()
+    if dom.startswith('www.'):
+        dom = dom[4:]
+    return dom
 
 
 app.register_blueprint(entities)

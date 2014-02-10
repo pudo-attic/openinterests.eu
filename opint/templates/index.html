@@ -5,19 +5,26 @@
 {% endblock %}
 
 {% block content %}
-    <img src="http://opendatalabs.org/eu/home.png" class="img-responsive img-homepage">
-    
+
     <p class="claim">
+        <!--
         See which companies, people and organisations have financial or political
         interests in the European institutions.
+        -->
+        Who has financial or political interests in the European institutions?
+    </p>
+
+    <p>
+        <img src="http://assets.pudo.org/img/ep_stras.png" class="img-responsive img-homepage">
+        <span class="credit">Photo: <a href="https://secure.flickr.com/photos/european_parliament/8260880473/">European Parliament</a></span>
     </p>
     
-    <hr>
+    <!--hr-->
 
     <form action="{{url_for('entities.search')}}" method="GET" class="form-horizontal" role="form">
         <div class="form-group">
             <div class="col-xs-12">
-                <input type="text" class="form-controls col-xs-12 search-box" name="q"
+                <input type="text" class="form-control input-lg search-box" name="q"
                     placeholder="Search for people, companies or public bodies...">
             </div>
         </div>

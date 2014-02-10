@@ -4,5 +4,7 @@ obj: entity
 attributes:
   - name: abbreviation
     label: Abbreviation
+    hidden: yes
   - name: number_of_members
     label: Number of members
+    hidden: yes

@@ -12,25 +12,69 @@
 {% endblock %}
 
 {% block content %}
-    <h2>{{ entity['name'].value }}</h2>
-    <p class="schemata">
-        {% for schema in entity.schemata if not schema.hidden %}
-            {{schema.label}}
-            {% if not loop.last %} &middot; {% endif %}
-        {% endfor %}
-
-        {% if entity['opencorporates_uri'] %}
-            &middot; See also: <a href="{{entity['opencorporates_uri'].value }}">{{ entity['name'].value }} on OpenCorporates.com</a>.
+    <h2>
+        {{ entity['name'].value }}
+        {% if entity['abbreviation'].value %}
+            <small>{{ entity['abbreviation'].value }}</small>
         {% endif %}
-
-        {% if entity.has_schema('eu_body') %}
-            &middot; Request information via <a href="{{ entity | entity_wob_link}}">AskTheEU.org</a>.
-        {% endif %}
-    </p>
-
+    </h2>
 
     <div class="row">
+        <div class="col-xs-12">
+            <div class="btn-toolbar entity-toolbar" role="toolbar">
+                <div class="btn-group pull-right">
+                    {% if entity['opencorporates_uri'] %}
+                        <a class="btn btn-default" href="{{entity['opencorporates_uri'].value }}">
+                            <img class="icon" src="https://opencorporates.com/assets/favicon.ico"> OpenCorporates
+                        </a>
+                    {% endif %}
+                    {% if entity.has_schema('eu_body') %}
+                        <a class="btn btn-default" href="{{ entity | entity_wob_link}}">
+                            <img class="icon" src="http://www.asktheeu.org/asktheeu-theme/images/favicon.ico"> Request information
+                        </a>
+                    {% endif %}
+                    {% if entity['url'] %}
+                        <a class="btn btn-default" href="{{entity['url'].value }}">
+                            <i class="fa fa-external-link"></i> {{entity['url'].value | domain_name}}
+                        </a>
+                    {% endif %}
+                    {% if entity['email'] %}
+                        <a class="btn btn-default" href="mailto:{{entity['email'].value }}">
+                            <i class="fa fa-comment"></i> Mail {{entity['email'].value}}
+                        </a>
+                    {% endif %}
+                    <a class="btn btn-default" href="{{url_for('entities_api.view', id=entity.id)}}">
+                        <i class="fa fa-code"></i> JSON
+                    </a>
+                    
+                </div>
+
+                <!--div class="btn-group">
+                    {% for schema in entity.schemata if not schema.hidden %}
+                        <a class="btn btn-default">{{schema.label}}</a>
+                    {% endfor %}
+                </div-->
+            </div>
+        </div>
+    </div>
+    <!--hr-->
+    <div class="row">
         <div class="col-md-5 col-md-push-7">
+            {% if entity.has_schema('expert_group') %}
+                <p>
+                    <span class="label label-primary">Expert Group</span>
+                    {{entity['exp_mission'].value}}
+                </p>
+            {% endif %}
+
+            {% if entity.has_schema('eu_body') %}
+                <p>
+                    <span class="label label-primary">EU Institution</span>
+                    {{entity['asktheeu_notes'].value}}
+                </p>
+            {% endif %}
+
+            <h3>Key facts</h3>
             <table class="table table-condensed">
                 {% for prop in entity.active_properties if not entity.get_attribute(prop.name).hidden %}
                     <tr>
@@ -66,7 +110,7 @@
                             {% endif %}
                             {{entity['name'].value}}<br>
                             <span itemprop="streetAddress">
-                            {{entity['address'].value}}<br>
+                            {{entity['address'].value}}
                             {% if entity['address_ctd'].value %}
                                 {{entity['address_ctd'].value}}<br>
                             {% endif %}
@@ -88,7 +132,7 @@
                                     Telephone: {{entity['phone'].value}}<br>
                                 </span>
                             {% endif %}
-                            {% if entity['fax'].value %}
+                            {% if entity['fax'].value and entity['fax'].value.strip() != '+' %}
                                 <span itemprop="telefax">
                                     Telefax: {{entity['fax'].value}}<br>
                                 </span>
@@ -99,7 +143,21 @@
             </table>
         </div>
 
+
         <div class="col-md-7 col-md-pull-5">
+            {% for schema, spager in outbound_sections %}
+                <a name="{{spager.name}}"></a>
+                <h3>{{schema.label_out}}</h3>
+                <ul class="entity-relations">
+                    {% for rel in spager %}
+                        <li>
+                            {{ render_relation(schema, 'out', entity, rel )}}
+                        </li>
+                    {% endfor %}
+                </ul>
+                {{ pagination.render(spager) }}
+            {% endfor %}
+
             {% for schema, spager in inbound_sections %}
                 <a name="{{spager.name}}"></a>
                 <h3>{{schema.label_in}}</h3>
@@ -113,18 +171,6 @@
                 {{ pagination.render(spager) }}
             {% endfor %}
 
-            {% for schema, spager in outbound_sections %}
-                <a name="{{spager.name}}"></a>
-                <h3>{{schema.label_out}}</h3>
-                <ul class="entity-relations">
-                    {% for rel in spager %}
-                        <li>
-                            {{ render_relation(schema, 'out', entity, rel )}}
-                        </li>
-                    {% endfor %}
-                </ul>
-                {{ pagination.render(spager) }}
-            {% endfor %}
         </div>
     </div>
 {% endblock %}

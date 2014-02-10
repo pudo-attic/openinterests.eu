@@ -5,47 +5,59 @@
 {% endblock %}
 
 {% block content %}
-    <p>
-        OpenInterests.eu is a catalogue of political and commercial actors related to the 
-        European Union. The project combines different sets of information into a search
-        engine, which can be used to quickly retrieve information about the activities of
-        companies, people and institutions in a European context.
-    </p>
-    <iframe width="200px" scrolling="0" height="20px" frameborder="0" allowtransparency="true" src="http://ghbtns.com/github-btn.html?user=pudo&amp;repo=openinterests.eu&amp;type=watch&amp;count=true&amp;size=small"></iframe>
-    <h3>Data sources</h3>
-    <p>
-        Currently, the following data sources are included in the catalogue:
-    </p>
-    <ul>
-        <li>EP/EC <a href="http://ec.europa.eu/transparencyregister/info/homePage.do">Transparency
-            Register</a> (i.e. the European Lobby Register).</li>
-        <li>EP/EC <a href="http://ec.europa.eu/transparency/regexpert/index.cfm">Register of Expert Groups</a> membership.</li>
-        <li>EC <a href="http://ec.europa.eu/budget/fts/index_en.htm">Financial Transparency System</a>, i.e. direct expenditure committments
-            by the Commission, including research funding.</li>
-        <li><a href="http://ted.europa.eu/TED/main/HomePage.do">Tenders Electronic Daily (TED)</a> contract award notices from procurement 
-            across Europe.</li>
-    </ul>
-    <p>
-        We'd be delighted to see others re-use the data gathered for OpenInterests. If you're 
-        interested in retrieving any of these datasets, visit the <a href="/data">data section</a>.
-    </p>
-    <h3>Credits</h3>
-    <p>
-        OpenInterests.eu includes work from a number of sources, and thus credit is due to
-        the many people who have helped make it: the LobbyFacts project team - 
-        <a href="http://corporateeurope.org/">Corporate Europe Observatory</a> (CEO), 
-        <a href="http://foeeeurope.org">Friends of the Earth Europe</a> (FoEE) and 
-        <a href="https://www.lobbycontrol.de/">LobbyControl</a>,
-        <a href="http://okfnlabs.org">OKFN Labs</a> and
-        <a href="http://opennews.org">Knight-Mozilla OpenNews</a>.
-    </p>
-    <h3>Contact</h3>
-    <p>
-        Please submit bug reports, feature ideas and source patches to the
-        <a href="https://github.com/pudo/openinterests.eu">pudo/openinterests.eu</a>
-        repository on GitHub. For other inquries, get in touch with <a href="http://pudo.org">@pudo</a>
-        via Mail or Twitter. Also, sign up to the <a href="https://groups.google.com/forum/#!forum/lobbying-transparency">lobbying-transparency</a> Google group.
-    </p>
+    <div class="row">
+        <div class="col-md-8">
+            <h3>What is OpenInterests.eu?</h3>
+            <p>
+                OpenInterests.eu is a catalogue of political and commercial actors related to the 
+                European Union. The project combines different sets of information into a search
+                engine, which can be used to quickly retrieve information about the activities of
+                companies, people and institutions in a European context.
+            </p>
+
+            <h3>Data sources</h3>
+            <p>
+                Currently, the following data sources are included in the catalogue:
+            </p>
+            <ul>
+                <li>EP/EC <a href="http://ec.europa.eu/transparencyregister/info/homePage.do">Transparency
+                    Register</a> (i.e. the European Lobby Register).</li>
+                <li>EP/EC <a href="http://ec.europa.eu/transparency/regexpert/index.cfm">Register of Expert Groups</a> membership.</li>
+                <li>EC <a href="http://ec.europa.eu/budget/fts/index_en.htm">Financial Transparency System</a>, i.e. direct expenditure committments
+                    by the Commission, including research funding.</li>
+                <li><a href="http://ted.europa.eu/TED/main/HomePage.do">Tenders Electronic Daily (TED)</a> contract award notices from procurement 
+                    across Europe.</li>
+            </ul>
+            <p>
+                We'd be delighted to see others re-use the data gathered for OpenInterests. If you're 
+                interested in retrieving any of these datasets, please get in touch.
+            </p>
+            <h3>Credits</h3>
+            <p>
+                OpenInterests.eu includes work from a number of sources, and thus credit is due to
+                the many people who have helped make it: the LobbyFacts project team - 
+                <a href="http://corporateeurope.org/">Corporate Europe Observatory</a> (CEO), 
+                <a href="http://foeeeurope.org">Friends of the Earth Europe</a> (FoEE) and 
+                <a href="https://www.lobbycontrol.de/">LobbyControl</a>,
+                <a href="http://okfnlabs.org">OKFN Labs</a> and
+                <a href="http://opennews.org">Knight-Mozilla OpenNews</a>.
+            </p>            
+        </div>
+
+        <div class="col-md-4">
+            <h3>Contact</h3>
+            <p>
+                Please submit bug reports, feature ideas and source patches to the
+                <a href="https://github.com/pudo/openinterests.eu">repository on GitHub</a>.
+            </p>
+            <iframe width="200px" scrolling="0" height="20px" frameborder="0" allowtransparency="true" src="http://ghbtns.com/github-btn.html?user=pudo&amp;repo=openinterests.eu&amp;type=watch&amp;count=true&amp;size=small"></iframe>
+            <p>
+                For other inquries, get in touch with <a href="http://pudo.org">@pudo</a>
+                via Mail or Twitter. Also, sign up to the <a href="https://groups.google.com/forum/#!forum/lobbying-transparency">lobbying-transparency</a> Google group.
+            </p>
+        </div>
+    </div>
+    
 {% endblock %}
 
 {% block js %}{% endblock %}
