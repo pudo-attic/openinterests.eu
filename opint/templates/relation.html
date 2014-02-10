@@ -17,9 +17,22 @@
 {% block content %}
     <h2>{{relation.schema.label}}</h2>
 
-    {% if relation.source.has_schema('eu_body') or relation.source.has_schema('eu_body') %}
-        <p>Request detailed information via <a href="{{ relation | relation_wob_link }}">AskTheEU.org</a>.</p>
-    {% endif %}
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="btn-toolbar entity-toolbar" role="toolbar">
+                <div class="btn-group pull-right">
+                    {% if relation.source.has_schema('eu_body') or relation.source.has_schema('eu_body') %}
+                        <a class="btn btn-default" href="{{ relation | relation_wob_link }}">
+                            <img class="icon" src="http://www.asktheeu.org/asktheeu-theme/images/favicon.ico"> Request detailed information
+                        </a>
+                    {% endif %}
+                    <a class="btn btn-default" href="{{url_for('relations_api.view', id=relation.id)}}">
+                        <i class="fa fa-code"></i> JSON
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <table class="table table-condensed">
         <tr>

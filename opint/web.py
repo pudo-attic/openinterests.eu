@@ -35,6 +35,18 @@ def domain_name(url):
     return dom
 
 
+@app.template_filter('longtext')
+def longtext(text):
+    texts = text.split('\n')
+    if len(text) < 350:
+        return '<p>' + '</p>\n<p>'.join(texts) + '</p>'
+    LT = """<div class="longtext"><div class="snippet">%s
+    <a class="expand" href="#">Read more...</a></div>
+    <div class="full"><p>%s</p></div></div>"""
+    snippet = texts[0] if len(texts[0]) < 350 else texts[0][:350] + '...'
+    return LT % (snippet, '</p>\n<p>'.join(texts))
+
+
 app.register_blueprint(entities)
 app.register_blueprint(relations)
 app.register_blueprint(base)

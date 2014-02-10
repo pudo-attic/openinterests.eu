@@ -12,6 +12,7 @@ attributes:
     label: Lobbying activities
   - name: reg_goals
     label: Goals
+    hidden: yes
   - name: reg_networking
     label: Networking activities
   - name: registration_date 

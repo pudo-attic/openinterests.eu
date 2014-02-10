@@ -185,7 +185,8 @@ input.search-box {
     .pagination {
         li.active a {
             color: @themeShaded;
-            background-color: @bgShaded;
+            background-color: @bgLight;
+            border-color: @themeColor;
         }
         li a {
             background-color: @bgColor;
@@ -226,6 +227,12 @@ th.attributes {
         height: 16px;
         margin-top: -2px;
         margin-left: -2px;
+    }
+}
+
+.longtext {
+    .full {
+        display: none;
     }
 }
 

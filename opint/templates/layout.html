@@ -74,7 +74,8 @@
   {% assets filters="uglifyjs", output="app.%(version)s.js",
         "entities/vendor/jquery/jquery.js",
         "entities/vendor/bootstrap/js/collapse.js",
-        "entities/vendor/bootstrap/js/dropdown.js"
+        "entities/vendor/bootstrap/js/dropdown.js",
+        "entities/js/util.js"
     %}
       <script type="text/javascript" src="{{ ASSET_URL }}"></script>
   {% endassets %}
