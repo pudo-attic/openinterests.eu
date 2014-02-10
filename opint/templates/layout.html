@@ -26,19 +26,38 @@
   <link rel="shortcut icon" href="http://assets.pudo.org/img/favicon.ico">
 </head>
 <body>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{url_for('base.index')}}">Open<span class="logo-highlight">Interests.eu</span></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+          <form class="navbar-form navbar-left" role="search" action="{{url_for('entities.search')}}">
+            <div class="form-group">
+              <input type="text" class="form-control" id="top-search-bar" name="q"
+                placeholder="Search lobbyists, NGOs, companies and public bodies...">
+            </div>
+            <!--button type="submit" class="btn btn-default">Submit</button-->
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/entities">Browse</a></li>
+            <li><a href="/bodies">Institutions</a></li>
+            <li><a href="/about">About</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
     <div class="container">
-        <header>
-            
-            <ul class="nav nav-pills pull-right">
-                <li><a href="/entities">Browse</a></li>
-                <li><a href="/bodies">Institutions</a></li>
-                <li><a href="/data">Data</a></li>
-                <li><a href="/about">About</a></li>
-            </ul>
-
-            <h1><a href="/" rel="up">Open<span class="logo-highlight">Interests.eu</span></a></h1>
-        </header>
-
         {% block content %}{% endblock %}
 
         <footer>
