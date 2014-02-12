@@ -92,7 +92,7 @@
                 {% for prop in entity.active_properties if not entity.get_attribute(prop.name).hidden %}
                     <tr>
                         <th width="40%" class="attributes col-md-12">
-                            {{entity.get_attribute(prop.name).label}}
+                            {{entity.get_attribute(prop.name).label or prop.name}}
                             <span class="source">
                                 {{ sources.link(prop) }}
                             </span>
