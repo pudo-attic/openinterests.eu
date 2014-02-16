@@ -2,8 +2,7 @@ import logging
 from pprint import pprint
 from hashlib import sha1
 
-from grano.service import Loader
-
+from sources.util.loader import make_loader
 from sources.experts.util import engine
 from sources.experts.util import exp_group, exp_sub_group, exp_group_type
 from sources.experts.util import exp_group_task, exp_group_associated_dg
@@ -87,7 +86,7 @@ def load(loader, row):
 
 
 def load_all():
-    loader = Loader(source_url=EXPERTS_URL)
+    loader = make_loader(source_url=EXPERTS_URL)
     for row in exp_group:
         load(loader, row)
 

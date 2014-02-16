@@ -2,7 +2,7 @@ import unicodecsv
 from StringIO import StringIO
 import requests
 
-from grano.service import Loader
+from sources.util.loader import make_loader
 
 SCHEMATA = ['organisation', 'web', 'public_body', 'eu_body']
 URL = "http://www.asktheeu.org/en/body/all-authorities.csv"
@@ -16,7 +16,7 @@ def get_eu_bodies():
 
 
 def create_eu_bodies():
-    loader = Loader()
+    loader = make_loader(source_url=URL)
     for body in get_eu_bodies():
         e = loader.make_entity(SCHEMATA,
             source_url='http://asktheeu.org/en/body/' + body.get('URL name'))

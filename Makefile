@@ -6,22 +6,22 @@ env:
 
 schema:
 	python opint/manage.py createdb
-	python opint/manage.py schema_import schemata/address.yaml
-	python opint/manage.py schema_import schemata/eu_body.yaml
-	python opint/manage.py schema_import schemata/expert_group.yaml
-	python opint/manage.py schema_import schemata/expert_group_associated.yaml
-	python opint/manage.py schema_import schemata/expert_group_member.yaml
-	python opint/manage.py schema_import schemata/fts_committment.yaml
-	python opint/manage.py schema_import schemata/geolocated.yaml
-	python opint/manage.py schema_import schemata/organisation.yaml
-	python opint/manage.py schema_import schemata/person.yaml
-	python opint/manage.py schema_import schemata/public_body.yaml
-	python opint/manage.py schema_import schemata/reg_membership.yaml
-	python opint/manage.py schema_import schemata/reg_role.yaml
-	python opint/manage.py schema_import schemata/reg_turnover.yaml
-	python opint/manage.py schema_import schemata/representative.yaml
-	python opint/manage.py schema_import schemata/ted_contract_award.yaml
-	python opint/manage.py schema_import schemata/web.yaml
+	python opint/manage.py schema_import openinterests schemata/address.yaml
+	python opint/manage.py schema_import openinterests schemata/eu_body.yaml
+	python opint/manage.py schema_import openinterests schemata/expert_group.yaml
+	python opint/manage.py schema_import openinterests schemata/expert_group_associated.yaml
+	python opint/manage.py schema_import openinterests schemata/expert_group_member.yaml
+	python opint/manage.py schema_import openinterests schemata/fts_committment.yaml
+	python opint/manage.py schema_import openinterests schemata/geolocated.yaml
+	python opint/manage.py schema_import openinterests schemata/organisation.yaml
+	python opint/manage.py schema_import openinterests schemata/person.yaml
+	python opint/manage.py schema_import openinterests schemata/public_body.yaml
+	python opint/manage.py schema_import openinterests schemata/reg_membership.yaml
+	python opint/manage.py schema_import openinterests schemata/reg_role.yaml
+	python opint/manage.py schema_import openinterests schemata/reg_turnover.yaml
+	python opint/manage.py schema_import openinterests schemata/representative.yaml
+	python opint/manage.py schema_import openinterests schemata/ted_contract_award.yaml
+	python opint/manage.py schema_import openinterests schemata/web.yaml
 	
 index:
 	python opint/manage.py index

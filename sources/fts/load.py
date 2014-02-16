@@ -2,8 +2,7 @@ import logging
 from pprint import pprint
 from hashlib import sha1
 
-from grano.service import Loader
-
+from sources.util.loader import make_loader
 from sources.fts.util import engine, fts_entry
 
 
@@ -64,7 +63,7 @@ def load(loader, row):
 	#pprint(dict(row))
 
 def load_all():
-	loader = Loader(source_url=FTS_URL)
+	loader = make_loader(source_url=FTS_URL)
 	for row in fts_entry:
 		load(loader, row)
 

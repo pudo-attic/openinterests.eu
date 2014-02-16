@@ -2,8 +2,7 @@ from pprint import pprint
 from hashlib import sha1
 import logging
 
-from grano.service import Loader
-
+from sources.util.loader import make_loader
 from sources.ted.util import ted_contracts
 
 log = logging.getLogger('sources.ted.load')
@@ -137,7 +136,7 @@ def load(loader, c):
 
 
 def load_all():
-	loader = Loader()
+	loader = make_loader()
 	for c in ted_contracts():
 		load(loader, c)
 

@@ -2,8 +2,7 @@ import logging
 from pprint import pprint
 from hashlib import sha1
 
-from grano.service import Loader
-
+from sources.util.loader import make_loader
 from sources.interests.util import engine
 from sources.interests.util import reg_person, reg_financial_data
 from sources.interests.util import reg_financial_data_custom_source
@@ -113,7 +112,7 @@ def load(loader, row):
 
 
 def load_all():
-    loader = Loader()
+    loader = make_loader()
     for row in reg_representative:
         load(loader, row)
 
