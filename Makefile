@@ -3,9 +3,11 @@
 env:
 	
 
+web:
+	python opint/manage.py runserver
 
 schema:
-	python opint/manage.py createdb
+	#python opint/manage.py createdb
 	python opint/manage.py schema_import openinterests schemata/address.yaml
 	python opint/manage.py schema_import openinterests schemata/eu_body.yaml
 	python opint/manage.py schema_import openinterests schemata/expert_group.yaml
