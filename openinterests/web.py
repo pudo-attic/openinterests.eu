@@ -43,6 +43,8 @@ def domain_name(url):
 
 @app.template_filter('longtext')
 def longtext(text):
+    if text is None:
+        return ''
     texts = text.split('\n')
     if len(text) < 300:
         return '<p>' + '</p>\n<p>'.join(texts) + '</p>'
