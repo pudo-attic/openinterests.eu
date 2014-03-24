@@ -24,7 +24,6 @@ def render_relation(schema, direction, entity, relation):
 def search():
     searcher = search_entities(request.args)
     searcher.add_facet('schemata.name', 20)
-    searcher.add_facet('relations.schema.name', 20)
     pager = Pager(searcher, 'search')
     #list(pager)
     schemata_facet = facet_schema_list(Entity, searcher.get_facet('schemata.name'))
