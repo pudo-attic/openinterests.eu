@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    {% for url, changed in entities %}
+    <url>
+      <loc>{{url}}</loc>
+      <lastmod>{{changed.strftime('%Y-%m-%d')}}</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.9</priority>
+    </url>
+    {% endfor %}
+</urlset> 
