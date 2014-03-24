@@ -19,6 +19,8 @@
         {% endif %}
     </h2>
 
+    <div id="graph-container" style="height: 400px;"></div>
+
     <div class="row">
         <div class="col-xs-12">
             <div class="btn-toolbar entity-toolbar" role="toolbar">
@@ -79,12 +81,14 @@
                 </p>
             {% elif entity.has_schema('representative') %}
                 <h3><span class="label label-primary">Lobbyist</span></h3>
+                {% if entity['reg_goals'] %}
                 <p>
                     {{entity['reg_goals'].value | longtext | safe}}
                     <span class="source">
                         {{ sources.link(entity['reg_goals']) }}
                     </span>
                 </p>
+                {% endif %}
             {% endif %}
 
             <!--h3>Key facts</h3-->
@@ -188,4 +192,85 @@
     </div>
 {% endblock %}
 
-{% block js %}{% endblock %}
+{% block js %}
+    {% assets output="graph.%(version)s.js",
+        "entities/vendor/sigma/src/sigma.core.js",
+        "entities/vendor/sigma/src/conrad.js",
+        "entities/vendor/sigma/src/utils/sigma.utils.js",
+        "entities/vendor/sigma/src/utils/sigma.polyfills.js",
+        "entities/vendor/sigma/src/sigma.settings.js",
+        "entities/vendor/sigma/src/classes/sigma.classes.dispatcher.js",
+        "entities/vendor/sigma/src/classes/sigma.classes.configurable.js",
+        "entities/vendor/sigma/src/classes/sigma.classes.graph.js",
+        "entities/vendor/sigma/src/classes/sigma.classes.camera.js",
+        "entities/vendor/sigma/src/classes/sigma.classes.quad.js",
+        "entities/vendor/sigma/src/captors/sigma.captors.mouse.js",
+        "entities/vendor/sigma/src/captors/sigma.captors.touch.js",
+        "entities/vendor/sigma/src/renderers/sigma.renderers.canvas.js",
+        "entities/vendor/sigma/src/renderers/sigma.renderers.webgl.js",
+        "entities/vendor/sigma/src/renderers/sigma.renderers.def.js",
+        "entities/vendor/sigma/src/renderers/webgl/sigma.webgl.nodes.def.js",
+        "entities/vendor/sigma/src/renderers/webgl/sigma.webgl.nodes.fast.js",
+        "entities/vendor/sigma/src/renderers/webgl/sigma.webgl.edges.def.js",
+        "entities/vendor/sigma/src/renderers/webgl/sigma.webgl.edges.fast.js",
+        "entities/vendor/sigma/src/renderers/webgl/sigma.webgl.edges.arrow.js",
+        "entities/vendor/sigma/src/renderers/canvas/sigma.canvas.labels.def.js",
+        "entities/vendor/sigma/src/renderers/canvas/sigma.canvas.hovers.def.js",
+        "entities/vendor/sigma/src/renderers/canvas/sigma.canvas.nodes.def.js",
+        "entities/vendor/sigma/src/renderers/canvas/sigma.canvas.edges.def.js",
+        "entities/vendor/sigma/src/renderers/canvas/sigma.canvas.edges.arrow.js",
+        "entities/vendor/sigma/src/middlewares/sigma.middlewares.rescale.js",
+        "entities/vendor/sigma/src/middlewares/sigma.middlewares.copy.js",
+        "entities/vendor/sigma/src/misc/sigma.misc.animation.js",
+        "entities/vendor/sigma/src/misc/sigma.misc.bindEvents.js",
+        "entities/vendor/sigma/src/misc/sigma.misc.drawHovers.js",
+        "entities/vendor/sigma/plugins/sigma.parsers.gexf/gexf-parser.js",
+        "entities/vendor/sigma/plugins/sigma.parsers.gexf/sigma.parsers.gexf.js",
+        "entities/vendor/sigma/plugins/sigma.layout.forceAtlas2/sigma.layout.forceAtlas2.js"  
+    %}
+      <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+    {% endassets %}
+    
+    
+    <script>
+    $(function() {
+        var $c = $('#graph-container');
+        function getRandomInt (min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        //var fa2 = sigma.utils.pkg('sigma.layout.forceatlas2');
+        //fa2.defaultSettings.gravity = 0.0;
+        //fa2.defaultSettings.barnesHutOptimize = true;
+        //console.log(fa2);
+        sigma.parsers.gexf('/api/1/entities/{{entity.id}}/graph?depth=2&format=gexf', {
+            container: 'graph-container',
+            edgeColor: '#eee',
+            defaultEdgeColor: '#eee'
+        },
+        function(s) {
+            s.bind('clickNode', function(e) {
+                //console.log(e.data.node.id);
+                window.location.href = '/entities/' + e.data.node.id;
+            });
+            s.graph.edges().forEach(function(e) {
+                e.color = '#ddd';
+            });
+            s.graph.nodes().forEach(function(e) {
+                e.size = 10 + Math.sqrt(s.graph.degree(e.id));
+                e.x = getRandomInt(1, $c.width());
+                e.y = getRandomInt(1, $c.height());
+                e.color = '#444';
+            });
+            s.refresh();
+            s.startForceAtlas2();
+
+            //setTimeout(function() {
+            //    s.stopForceAtlas2();
+            //}, 5000);
+            //console.log(s);
+            //window.sigmar = s;
+        });
+    });
+    </script>
+
+{% endblock %}

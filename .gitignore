@@ -41,5 +41,5 @@ env/*
 grano/*
 source_data/*
 
-opint/static/vendor/*
+openinterests/static/vendor/*
 settings.py

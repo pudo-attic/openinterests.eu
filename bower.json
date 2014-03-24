@@ -8,6 +8,7 @@
   ],
   "dependencies": {
     "bootstrap": "3.0.0",
-    "font-awesome": "~4.0.3"
+    "font-awesome": "~4.0.3",
+    "sigma": "~1.0.0"
   }
 }

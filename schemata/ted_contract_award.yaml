@@ -48,12 +48,15 @@ attributes:
     label: Type of supplies
   - name: contract_value_cost_eur
     label: Contract value (EUR)
+    datatype: float
   - name: original_currency
     label: Original currency
   - name: contract_value_high_eur
     label: Contract value (highest)
+    datatype: float
   - name: contract_value_low_eur
     label: Contract value (lowest)
+    datatype: float
   - name: contract_value_vat_included
     label: Contract value (VAT included)
   - name: contract_value_vat_rate
@@ -66,6 +69,7 @@ attributes:
     label: Filing reference
   - name: gpa_covered
     label: Covered by GPA
+    datatype: boolean
   - name: initial_value_cost_eur
     label: Initial cost (EUR)
   - name: initial_value_vat_included

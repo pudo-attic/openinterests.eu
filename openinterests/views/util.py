@@ -5,6 +5,7 @@ def facet_schema_list(obj, facets):
     project = Project.by_slug('openinterests')
     for facet in facets:
         schema = Schema.by_name(project, facet.get('term'))
-        if not schema.hidden:
+        print 'schema', schema
+        if schema is not None and not schema.hidden:
             results.append((schema, facet.get('count')))
     return results

@@ -6,5 +6,7 @@ obj: relation
 attributes:
   - name: turnover_min
     label: Minimal amount
+    datatype: float
   - name: turnover_max
     label: Maximal amount
+    datatype: float

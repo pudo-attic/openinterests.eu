@@ -12,6 +12,10 @@ from opint.views.relations import relations
 from opint.views.base import base
 from opint.asktheeu import relation_wob_link
 
+from flask.ext.assets import Environment
+from flask.ext.assets import ManageAssets
+
+assets = Environment(app)
 
 @app.template_filter('format_eur')
 def format_eur(num):

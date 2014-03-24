@@ -12,8 +12,10 @@ attributes:
     hidden: yes
   - name: amount
     label: Amount (in this committment)
+    datatype: integer
   - name: total
     label: Amount (total)
+    datatype: integer
   - name: article
     label: Article (EU budget)
     hidden: yes
@@ -44,3 +46,4 @@ attributes:
     label: Action Type
   - name: coordinator
     label: Coordinator
+    datatype: boolean

@@ -11,9 +11,11 @@ attributes:
   - name: lon
     label: Longitude
     hidden: yes
+    datatype: float
   - name: lat
     label: Latitude
     hidden: yes
+    datatype: float
   - name: nuts1
     label: NUTS1 Code
     hidden: yes

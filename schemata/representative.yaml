@@ -17,6 +17,7 @@ attributes:
     label: Networking activities
   - name: registration_date 
     label: Registration date
+    datatype: datetime
   - name: main_category 
     label: Main category
   - name: sub_category 

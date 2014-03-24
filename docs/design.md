@@ -1,5 +1,14 @@
 Right now this is only ficiton. If you're interested, please help! 
 
+### Next steps
+
+* Schema validation 
+* Property types
+* REST read API
+* AskTheEU.org Links
+* Two-column layout
+* Search fields on pagers
+* Data notifications
 
 ### User Stories
 

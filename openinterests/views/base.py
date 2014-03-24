@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, make_response
-from flask import redirect
+from flask import redirect, request
 
 from grano.core import url_for
 from grano.model import Entity
@@ -12,7 +12,7 @@ base = Blueprint('base', __name__, static_folder='../static', template_folder='.
 
 @base.route('/')
 def index():
-    searcher = search_entities({})
+    searcher = search_entities(request.args)
     searcher.add_facet('schemata.name', 20)
     schemata_facet = facet_schema_list(Entity, searcher.get_facet('schemata.name'))
     return render_template('index.html', schemata_facet=schemata_facet)

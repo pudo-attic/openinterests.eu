@@ -10,5 +10,7 @@ attributes:
     label: Position
   - name: role_start_date
     label: Start date
+    datatype: datetime
   - name: role_end_date
     label: End date
+    datatype: datetime
