@@ -6,4 +6,4 @@ Paid
 {% else %}
     ca. {{relation['turnover_min'].value | format_eur}} {{relation['turnover_max'].value | format_eur}}
 {% endif %}
- to <a href="{{url_for('entities.view', id=relation.target.id)}}">{{relation.target['name'].value}}</a>
+ to <a href="{{ relation.target | entity_link }}" itemprop="affiliation">{{relation.target['name'].value}}</a>

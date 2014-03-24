@@ -25,7 +25,7 @@
         {% endif %}
             <div class="col-md-3">
                 <p>
-                    <a href="{{url_for('entities.view', id=body.get('id'))}}">
+                    <a href="{{ body | entity_link }}">
                         {{body.get('properties').get('name').get('value')}}
                     </a>
                     ({{body.get('inbound_relations')}})

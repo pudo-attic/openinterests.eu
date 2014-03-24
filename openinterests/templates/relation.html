@@ -37,11 +37,11 @@
     <table class="table table-condensed">
         <tr>
             <th width="40%" class="attributes">Origin</th>
-            <td colspan="2"><a href="{{url_for('entities.view', id=relation.source.id)}}">{{relation.source['name'].value}}</a></td>
+            <td colspan="2"><a href="{{ relation.source | entity_link }}">{{relation.source['name'].value}}</a></td>
         </tr>
         <tr>
             <th width="40%" class="attributes">Destination</th>
-            <td colspan="2"><a href="{{url_for('entities.view', id=relation.target.id)}}">{{relation.target['name'].value}}</a></td>
+            <td colspan="2"><a href="{{ relation.target | entity_link }}">{{relation.target['name'].value}}</a></td>
         </tr>
         {% for prop in relation.active_properties if not relation.get_attribute(prop.name).hidden and prop.value != None %}            
             <tr>

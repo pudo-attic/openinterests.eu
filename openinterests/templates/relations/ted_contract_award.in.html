@@ -13,4 +13,4 @@ for
 {% if relation['contract_title'].value %} 
     ({{relation['contract_title'].value}})
 {% endif %}
-by <a href="{{url_for('entities.view', id=relation.source.id)}}">{{relation.source['name'].value}}</a>
+by <a href="{{ relation.source | entity_link }}" itemprop="affiliation">{{relation.source['name'].value}}</a>

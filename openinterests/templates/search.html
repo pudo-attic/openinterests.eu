@@ -27,7 +27,7 @@
             <ul class="search-results">
                 {% for hit in pager %}
                     <li>
-                        <a href="{{url_for('entities.view', id=hit.get('id'))}}">{{hit.get('properties').get('name').get('value')}}</a>
+                        <a href="{{hit | entity_link}}">{{hit.get('properties').get('name').get('value')}}</a>
                         <span class="schemata">
                             {% for schema in hit.get('schemata') %}
                                 &middot; {{schema.get('label')}} 

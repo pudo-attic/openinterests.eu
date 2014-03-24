@@ -6,4 +6,4 @@ Received
 {% else %}
     ca. {{relation['turnover_min'].value | format_eur}} {{relation['turnover_max'].value | format_eur}}
 {% endif %}
-from <a href="{{url_for('entities.view', id=relation.source.id)}}">{{relation.source['name'].value}}</a>
+from <a href="{{ relation.source | entity_link }}" itemprop="affiliation">{{relation.source['name'].value}}</a>

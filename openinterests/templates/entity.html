@@ -11,11 +11,21 @@
     | striptags | truncate(length=155) | trim | safe }}
 {% endblock %}
 
+{% block extra_head %}
+  <link rel="canonical" href="{{canonical_url}}" />
+{% endblock %}
+
 {% block content %}
+    {% if entity.has_schema('person') %}
+        <div itemscope itemtype="http://schema.org/Person">
+    {% else %}
+        <div itemscope itemtype="http://schema.org/Organization">
+    {% endif %}
+
     <h2>
-        {{ entity['name'].value }}
+        <span itemprop="name">{{ entity['name'].value }}</span>
         {% if entity['abbreviation'].value %}
-            <small>{{ entity['abbreviation'].value }}</small>
+            <small itemprop="alternateName">{{ entity['abbreviation'].value }}</small>
         {% endif %}
     </h2>
 
@@ -38,12 +48,12 @@
                         </a>
                     {% endif %}
                     {% if entity['url'] and entity['url'].value %}
-                        <a class="btn btn-default" href="{{entity['url'].value }}">
+                        <a class="btn btn-default" href="{{entity['url'].value }}" itemprop="url">
                             <i class="fa fa-external-link"></i> {{entity['url'].value | domain_name}}
                         </a>
                     {% endif %}
-                    {% if entity['email'] %}
-                        <a class="btn btn-default" href="mailto:{{entity['email'].value }}">
+                    {% if entity['email'] and entity['email'].value %}
+                        <a class="btn btn-default" href="mailto:{{entity['email'].value }}" itemprop="email">
                             <i class="fa fa-comment"></i> Mail {{entity['email'].value}}
                         </a>
                     {% endif %}
@@ -63,7 +73,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-5 col-md-push-7">
+        <div class="col-md-5 col-md-push-7" itemprop="description">
             {% if entity.has_schema('expert_group') %}
                 <h3><span class="label label-primary">Expert Group</span></h3>
                 <p>
@@ -192,10 +202,11 @@
 
         </div>
     </div>
+    </div>
 {% endblock %}
 
-{% if entity_hairball %}
-    {% block js %}
+{% block js %}
+    {% if entity_hairball %}
         {% assets output="graph.%(version)s.js",
             "entities/vendor/sigma/src/sigma.core.js",
             "entities/vendor/sigma/src/conrad.js",
@@ -275,6 +286,5 @@
             });
         });
         </script>
-
-    {% endblock %}
-{% endif %}
+    {% endif %}
+{% endblock %}

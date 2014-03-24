@@ -1,4 +1,4 @@
 <a href="{{url_for('relations.view', id=relation.id)}}"><i class="fa fa-users spacer"></i></a>
                     
-<a href="{{url_for('entities.view', id=relation.source.id)}}">{{relation.source['name'].value}}</a>
+<a href="{{ relation.source | entity_link }}" itemprop="employee">{{relation.source['name'].value}}</a>
 ({{relation['exp_status'].value}}, {{relation['exp_type'].value}})

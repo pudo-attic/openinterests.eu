@@ -1,4 +1,4 @@
 
-<a class="other" href="{{url_for('entities.view', id=relation.target.id)}}">&raquo; {{relation.target['name'].value}}</a>
+<a class="other" href="{{ relation.target | entity_link }}" itemprop="affiliation">&raquo; {{relation.target['name'].value}}</a>
 <span class="details">(<a href="{{url_for('relations.view', id=relation.id)}}">Details</a>)</span>
 {{relation.schema.name}}
