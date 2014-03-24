@@ -12,10 +12,10 @@ attributes:
     hidden: yes
   - name: amount
     label: Amount (in this committment)
-    datatype: integer
+    datatype: float
   - name: total
     label: Amount (total)
-    datatype: integer
+    datatype: float
   - name: article
     label: Article (EU budget)
     hidden: yes
