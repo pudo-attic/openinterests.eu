@@ -7,7 +7,7 @@ web:
 	python openinterests/manage.py runserver
 
 schema:
-	#python openinterests/manage.py createdb
+	python openinterests/manage.py db upgrade head
 	python openinterests/manage.py schema_import openinterests schemata/address.yaml
 	python openinterests/manage.py schema_import openinterests schemata/eu_body.yaml
 	python openinterests/manage.py schema_import openinterests schemata/expert_group.yaml
