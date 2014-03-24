@@ -1,7 +1,7 @@
 {
   "name": "openinterests",
   "version": "0.1.0",
-  "main": "opint/static/css/main.css",
+  "main": "openinterests/static/css/main.css",
   "ignore": [
     ".jshintrc",
     "**/*.txt"

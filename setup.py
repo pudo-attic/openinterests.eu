@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='opint',
+    name='openinterests',
     version='0.1',
     description="Explore power and influence in the European Union",
     long_description='',
@@ -16,7 +16,7 @@ setup(
     author_email='friedrich@pudo.org',
     url='http://pudo.org',
     license='MIT',
-    packages=['opint', 'sources'],
+    packages=['openinterests', 'sources'],
     #packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
     namespace_packages=[],
     include_package_data=False,
