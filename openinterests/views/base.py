@@ -21,7 +21,7 @@ def index():
 @base.route('/bodies')
 def bodies():
     eu_bodies = search_entities(request.args,
-        sort_field=('num_relations', 'desc'))
+        sort_field=('inbound_relations', 'desc'))
     eu_bodies.limit(200)
     eu_bodies.add_filter('schemata.name', 'eu_body')
     return render_template('bodies.html', eu_bodies=eu_bodies)
