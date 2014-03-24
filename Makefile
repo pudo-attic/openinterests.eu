@@ -32,6 +32,10 @@ reindex:
 	python openinterests/manage.py flush_index
 	python openinterests/manage.py index
 
+aliases:
+	python openinterests/manage.py alias_import openinterests data/aliases.csv
+	python openinterests/manage.py alias_export openinterests data/aliases_out.csv
+
 
 ####################################################
 # AskTheEU Loader 
