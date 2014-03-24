@@ -19,8 +19,8 @@ assets = Environment(app)
 
 @app.template_filter('format_eur')
 def format_eur(num):
-    if num is None or not len(num):
-        return ''
+    if num is None or (isinstance(num, basestring) and not len(num)):
+        return '-'
     try:
         num = decimal.Decimal(num)
         num = babel.numbers.format_currency(num, "EUR", locale="en_US")
@@ -32,6 +32,8 @@ def format_eur(num):
 
 @app.template_filter('domain_name')
 def domain_name(url):
+    if url is None:
+        return None
     url = urlparse(url)
     dom = url.hostname.lower()
     if dom.startswith('www.'):
