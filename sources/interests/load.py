@@ -3,6 +3,7 @@ from pprint import pprint
 from hashlib import sha1
 
 from sources.util.loader import make_loader
+from sources.util.convert import null_float
 from sources.interests.util import engine
 from sources.interests.util import reg_person, reg_financial_data
 from sources.interests.util import reg_financial_data_custom_source
@@ -101,8 +102,8 @@ def load(loader, row):
         org.save()        
 
         to = loader.make_relation('reg_turnover', org, rep, source_url=source_url)
-        to.set('turnover_min', fdt.pop('min'))
-        to.set('turnover_max', fdt.pop('max'))
+        to.set('turnover_min', null_float(fdt.pop('min')))
+        to.set('turnover_max', null_float(fdt.pop('max')))
         to.save()
 
     # TODO - include financial reports into rep entity
