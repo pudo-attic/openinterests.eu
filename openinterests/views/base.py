@@ -20,7 +20,8 @@ def index():
 
 @base.route('/bodies')
 def bodies():
-    eu_bodies = search_entities({}, sort_field=('num_relations', 'desc'))
+    eu_bodies = search_entities(request.args,
+        sort_field=('num_relations', 'desc'))
     eu_bodies.limit(200)
     eu_bodies.add_filter('schemata.name', 'eu_body')
     return render_template('bodies.html', eu_bodies=eu_bodies)
@@ -29,8 +30,3 @@ def bodies():
 @base.route('/about')
 def about_page():
     return render_template('about.html')
-
-
-@base.route('/data')
-def data_page():
-    return redirect(url_for('base.about_page'))
