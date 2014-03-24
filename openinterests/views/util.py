@@ -82,7 +82,7 @@ def render_value(value):
         else:
             return '<i class="fa fa-minus-square"></i> false'
     if isinstance(value, datetime):
-        return format_date(value, locale='en_US')
+        return babel.dates.format_date(value, locale='en_US')
     return value
 
 
