@@ -78,7 +78,7 @@
                 <h3><span class="label label-primary">Expert Group</span></h3>
                 <p>
                     
-                    {{entity['exp_mission'].value | longtext | safe}}
+                    {{entity['exp_mission'].value | render_value | safe}}
                     <span class="source">
                         {{ sources.link(entity['exp_mission']) }}
                     </span>
@@ -86,7 +86,7 @@
             {% elif entity.has_schema('eu_body') %}
                 <h3><span class="label label-primary">EU Institution</span></h3>
                 <p>
-                    {{entity['asktheeu_notes'].value | longtext | safe}}
+                    {{entity['asktheeu_notes'].value | render_value | safe}}
                     <span class="source">
                         {{ sources.link(entity['asktheeu_notes']) }}
                     </span>
@@ -95,7 +95,7 @@
                 <h3><span class="label label-primary">Lobbyist</span></h3>
                 {% if entity['reg_goals'] %}
                 <p>
-                    {{entity['reg_goals'].value | longtext | safe}}
+                    {{entity['reg_goals'].value | render_value | safe}}
                     <span class="source">
                         {{ sources.link(entity['reg_goals']) }}
                     </span>
@@ -114,12 +114,12 @@
                             </span>
                         </th>
                         <td class="hidden-md hidden-lg">
-                            {{prop.value | longtext | safe}}
+                            {{prop.value | render_value | safe}}
                         </td>
                     </tr>
                     <tr>
                         <td class="value hidden-xs hidden-sm">
-                            {{prop.value | longtext | safe}}
+                            {{prop.value | render_value | safe}}
                         </td>
                     </tr>
                 {% endfor %}

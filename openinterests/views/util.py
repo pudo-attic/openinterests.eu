@@ -1,6 +1,7 @@
 import babel.numbers
 import decimal
 import locale
+from datetime import datetime
 from urlparse import urlparse
 from slugify import slugify
 
@@ -67,8 +68,25 @@ def entity_link(entity, **kwargs):
     return url_for('entities.view', id=id, slug=url_slug(name), **kwargs)
 
 
-@app.template_filter('longtext')
-def longtext(text):
+@app.template_filter('render_value')
+def render_value(value):
+    if isinstance(value, basestring):
+        return render_value_text(value)
+    if isinstance(value, int):
+        return '<span class="numeric-value int-value">%d</span>' % value
+    if isinstance(value, float):
+        return '<span class="numeric-value float-value">%.2f</span>' % value
+    if isinstance(value, bool):
+        if value:
+            return '<i class="fa fa-plus-square"></i> true'
+        else:
+            return '<i class="fa fa-minus-square"></i> false'
+    if isinstance(value, datetime):
+        return format_date(value, locale='en_US')
+    return value
+
+
+def render_value_text(text):
     if text is None:
         return ''
     texts = text.split('\n')

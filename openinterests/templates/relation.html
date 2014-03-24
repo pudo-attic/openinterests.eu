@@ -46,7 +46,7 @@
         {% for prop in relation.active_properties if not relation.get_attribute(prop.name).hidden and prop.value != None %}            
             <tr>
                 <th width="40%" class="attributes">{{relation.get_attribute(prop.name).label or prop.name}}</th>
-                <td>{{prop.value | safe}}</td>
+                <td>{{prop.value | render_value | safe}}</td>
                 <td class="source">{{ sources.link(prop) }}</td>
             </tr>
         {% endfor %}
