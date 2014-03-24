@@ -3,7 +3,7 @@ from pprint import pprint
 from hashlib import sha1
 
 from sources.util.loader import make_loader
-from sources.util.convert import null_float
+from sources.util.convert import null_float, as_date
 from sources.interests.util import engine
 from sources.interests.util import reg_person, reg_financial_data
 from sources.interests.util import reg_financial_data_custom_source
@@ -55,7 +55,7 @@ def load(loader, row):
     rep.set('reg_activities', row.pop('activities'))
     rep.set('reg_goals', row.pop('goals'))
     rep.set('reg_networking', row.pop('networking'))
-    rep.set('registration_date', row.pop('registration_date'))
+    rep.set('registration_date', as_date(row.pop('registration_date')))
     rep.set('main_category', row.pop('main_category'))
     rep.set('sub_category', row.pop('sub_category'))
 
