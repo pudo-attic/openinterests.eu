@@ -59,6 +59,7 @@ attributes:
     datatype: float
   - name: contract_value_vat_included
     label: Contract value (VAT included)
+    datatype: boolean
   - name: contract_value_vat_rate
     label: Contract value (VAT rate)
   - name: cpv_code
@@ -72,8 +73,10 @@ attributes:
     datatype: boolean
   - name: initial_value_cost_eur
     label: Initial cost (EUR)
+    datatype: float
   - name: initial_value_vat_included
     label: Initial cost (VAT included)
+    datatype: boolean
   - name: initial_value_vat_rate
     label: Initial cost (VAT rate)
   - name: contract_location
@@ -91,12 +94,16 @@ attributes:
     label: Related to an EU project
   - name: total_value_cost_eur
     label:  Total cost (EUR)
+    datatype: float
   - name: total_value_high_eur
     label: Total cost (highest)
+    datatype: float
   - name: total_value_low_eur
     label: Total cost (lowest)
+    datatype: float
   - name: total_value_vat_included
     label: Total cost (VAT included)
+    datatype: boolean
   - name: total_value_vat_rate
     label: Total cost (VAT rate)
   - name: type_contract
