@@ -7,10 +7,10 @@ from urlparse import urlparse
 
 from grano.core import app
 
-from opint.views.entities import entities
-from opint.views.relations import relations
-from opint.views.base import base
-from opint.asktheeu import relation_wob_link
+from openinterests.views.entities import entities
+from openinterests.views.relations import relations
+from openinterests.views.base import base
+from openinterests.asktheeu import relation_wob_link
 
 from flask.ext.assets import Environment
 from flask.ext.assets import ManageAssets

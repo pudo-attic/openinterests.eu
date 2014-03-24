@@ -19,7 +19,7 @@ for more information.
 
 This repository contains a set of sub-projects, in particular: 
 
-* ``opint`` - the application front-end, i.e. HTML rendering logic.
+* ``openinterests`` - the application front-end, i.e. HTML rendering logic.
 * ``sources`` - extraction and parsing scripts for the various data sources, including:
     * ``sources/experts`` - EC/EP Register of Expert Groups, i.e. data about the structure and membership of EU advisory bodies on a variety of topics.
     * ``sources/fts`` - EC Financial Transparency System, i.e. direct expenditures of the European Commission. 

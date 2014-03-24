@@ -4,7 +4,7 @@ from flask import redirect, request
 from grano.core import url_for
 from grano.model import Entity
 from grano.logic.searcher import search_entities
-from opint.views.util import facet_schema_list
+from openinterests.views.util import facet_schema_list
 
 
 base = Blueprint('base', __name__, static_folder='../static', template_folder='../templates')

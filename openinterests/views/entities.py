@@ -5,7 +5,7 @@ from werkzeug.exceptions import NotFound
 from grano.logic.searcher import search_entities
 from grano.lib.pager import Pager
 from grano.model import Entity, Relation
-from opint.views.util import facet_schema_list
+from openinterests.views.util import facet_schema_list
 
 
 entities = Blueprint('entities', __name__, static_folder='../static', template_folder='../templates')
