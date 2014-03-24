@@ -5,6 +5,7 @@ from werkzeug.exceptions import NotFound
 from grano.logic.searcher import search_entities
 from grano.lib.pager import Pager
 from grano.model import Entity, Relation
+from grano.core import app
 from openinterests.views.util import facet_schema_list
 
 
@@ -49,7 +50,10 @@ def view(id):
         pager_name = schema.name + '_out'
         pager = Pager(entity.outbound_by_schema(schema), pager_name, id=id, limit=15)
         outbound_sections.append((schema, pager))
+
+    entity_hairball = app.config.get('ENTITY_HAIRBALL', True)
     return render_template('entity.html', entity=entity,
+        entity_hairball=entity_hairball,
         inbound_sections=inbound_sections,
         outbound_sections=outbound_sections,
         render_relation=render_relation)
