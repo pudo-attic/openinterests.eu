@@ -207,7 +207,7 @@
 
 {% block js %}
     {% if entity_hairball %}
-        {% assets output="graph.%(version)s.js",
+        {% assets output="prod/graph.%(version)s.js",
             "entities/vendor/sigma/src/sigma.core.js",
             "entities/vendor/sigma/src/conrad.js",
             "entities/vendor/sigma/src/utils/sigma.utils.js",

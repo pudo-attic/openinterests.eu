@@ -15,7 +15,7 @@
 
   <link href='http://fonts.googleapis.com/css?family=Antic+Slab|Convergence' rel='stylesheet' type='text/css'>
 
-  {% assets filters="less,cssmin,cssrewrite", output="style.%(version)s.css",
+  {% assets filters="less,cssmin,cssrewrite", output="prod/style.%(version)s.css",
       "entities/vendor/bootstrap/less/bootstrap.less",
       "entities/style/style.less"
   %}
@@ -73,7 +73,7 @@
     </div>
 
 
-  {% assets filters="uglifyjs", output="app.%(version)s.js",
+  {% assets filters="uglifyjs", output="prod/app.%(version)s.js",
         "entities/vendor/jquery/jquery.js",
         "entities/vendor/bootstrap/js/collapse.js",
         "entities/vendor/bootstrap/js/dropdown.js",
