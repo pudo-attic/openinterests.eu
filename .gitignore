@@ -37,7 +37,12 @@ nosetests.xml
 .pydevproject
 .env
 
+data/aliases_out.csv
 env/*
+guniconf.py
+logs/*
+backup/*
+backup.sh
 grano/*
 source_data/*
 
