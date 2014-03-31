@@ -63,10 +63,13 @@ def domain_name(url):
 @app.template_filter('entity_link')
 def entity_link(entity, **kwargs):
     if isinstance(entity, Entity):
-        id, name = entity.id, entity['name'].value
+        prop = entity['name']
+        id, name = entity.id, prop.value if prop else ''
     else:
-        id, name = entity.get('id'), entity.get('properties').get('name').get('value')
-    return url_for('entities.view', id=id, slug=url_slug(name), **kwargs)
+        prop = entity.get('properties', {}).get('name', {})
+        id, name = entity.get('id'), prop.get('value', '')
+    return url_for('entities.view', id=id,
+        slug=url_slug(name), **kwargs)
 
 
 @app.template_filter('render_value')
