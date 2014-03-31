@@ -64,10 +64,10 @@ def domain_name(url):
 def entity_link(entity, **kwargs):
     if isinstance(entity, Entity):
         prop = entity['name']
-        id, name = entity.id, prop.value if prop else ''
+        id, name = entity.id, prop.value if prop else 'forward'
     else:
         prop = entity.get('properties', {}).get('name', {})
-        id, name = entity.get('id'), prop.get('value', '')
+        id, name = entity.get('id'), prop.get('value', 'forward')
     return url_for('entities.view', id=id,
         slug=url_slug(name), **kwargs)
 

@@ -53,7 +53,8 @@ def view(id, slug=None):
     if entity is None:
         raise NotFound()
     if entity.same_as is not None:
-        return redirect(entity_link(Entity.by_id(entity.same_as)))
+        canonical = Entity.by_id(entity.same_as)
+        return redirect(entity_link(canonical))
     inbound_sections = []
     slug = url_slug(entity['name'].value)
     for schema in entity.inbound_schemata:
