@@ -28,7 +28,7 @@
                     <a href="{{ body | entity_link }}">
                         {{body.get('properties').get('name').get('value')}}
                     </a>
-                    ({{body.get('inbound_relations')}})
+                    ({{body.get('degree')}})
                 </p>
             </div>
         {% if loop.index % 4 == 0 or loop.last %}
