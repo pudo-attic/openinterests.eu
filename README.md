@@ -1,32 +1,24 @@
 ## OpenInterests
 
 The intent of this project is to create a simplified, searchable
-presentation of actors involved in EU politics and institutions and the relationships between them. In particular, the database will include: 
+presentation of actors involved in EU politics and institutions and the relationships between them. In particular, the database will include:
 
 * Information from the register of interests (lobby register)
 * Personnel information from the register of EP accredditations
 * Expense information from the EC's financial transparency system
 * Potentially: contract awards made by EU institutions
 
-As a secondary objective, the site's software will be built to be 
+As a secondary objective, the site's software will be built to be
 re-usable as a data graph storage.
 
 See
 [DESIGN](https://github.com/pudo/openinterests.eu/blob/master/DESIGN.md)
 for more information.
 
-### Structure
+### Dependencies
 
-This repository contains a set of sub-projects, in particular: 
-
-* ``openinterests`` - the application front-end, i.e. HTML rendering logic.
-* ``sources`` - extraction and parsing scripts for the various data sources, including:
-    * ``sources/experts`` - EC/EP Register of Expert Groups, i.e. data about the structure and membership of EU advisory bodies on a variety of topics.
-    * ``sources/fts`` - EC Financial Transparency System, i.e. direct expenditures of the European Commission. 
-    * ``sources/interests`` - EC/ECP Register of Interests, i.e. the EU's lobby register (such as it is). Includes companies, think tanks and NGOs which lobby the Commission or Parliament. Includes EP accredditation data.
-    * ``sources/ted`` - Tenders Electronic Daily, the EU's joint procurement system. This includes tenders and contract awards not just for EU bodies, but also the member states.
-* ``data`` - has reference data, in particular with regards to the geographic units of the EU.
-* ``docs`` - some documentation.
+OpenInterests requires a working installation of [monnet](http://github.com/pudo/monnet) to be able to load the data extracted by those scrapers. Both
+packages need to be installed in the same namespace, and environment variables should be shared.
 
 ### Installation and Usage
 
