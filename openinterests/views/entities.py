@@ -3,7 +3,7 @@ from flask import redirect, url_for
 from werkzeug.routing import BaseConverter
 from werkzeug.exceptions import NotFound
 
-from grano.logic.searcher import search_entities
+from grano.es.searcher import Searcher
 from grano.lib.pager import Pager
 from grano.model import Entity, Relation
 from grano.core import app
@@ -17,7 +17,7 @@ class IDConverter(BaseConverter):
 
     def __init__(self, url_map, *items):
         super(IDConverter, self).__init__(url_map)
-    
+
     def to_python(self, value):
         if '-' in value:
             value, _ = value.split('-', 1)
@@ -36,7 +36,7 @@ def render_relation(schema, direction, entity, relation):
 
 @entities.route('/entities')
 def search():
-    searcher = search_entities(request.args)
+    searcher = Searcher(request.args)
     searcher.add_facet('schemata.name', 20)
     pager = Pager(searcher, 'search')
     #list(pager)

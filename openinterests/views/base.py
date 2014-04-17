@@ -3,7 +3,7 @@ from flask import redirect, request
 
 from grano.core import db, url_for
 from grano.model import Entity
-from grano.logic.searcher import search_entities
+from grano.es.searcher import Searcher
 from openinterests.views.util import facet_schema_list
 from openinterests.views.util import url_slug
 
@@ -13,7 +13,7 @@ base = Blueprint('base', __name__, static_folder='../static', template_folder='.
 
 @base.route('/')
 def index():
-    searcher = search_entities(request.args)
+    searcher = Searcher(request.args)
     searcher.add_facet('schemata.name', 20)
     schemata_facet = facet_schema_list(Entity, searcher.get_facet('schemata.name'))
     return render_template('index.html', schemata_facet=schemata_facet)
@@ -21,7 +21,7 @@ def index():
 
 @base.route('/bodies')
 def bodies():
-    eu_bodies = search_entities(request.args,
+    eu_bodies = Searcher(request.args,
         sort_field=('degree', 'desc'))
     eu_bodies.limit(200)
     eu_bodies.add_filter('schemata.name', 'eu_body')
